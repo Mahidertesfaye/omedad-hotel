@@ -1,0 +1,33 @@
+.figure {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  aspect-ratio: 4 / 3;
+  min-height: clamp(18rem, 42vw, 28rem);
+}
+
+.imageInner {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+.image {
+  object-fit: cover;
+}
+
+@media (min-width: 1025px) {
+  .figure {
+    aspect-ratio: 5 / 6;
+    min-height: clamp(28rem, 52vh, 40rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .figure {
+    aspect-ratio: 16 / 10;
+    min-height: clamp(16rem, 50vw, 22rem);
+  }
+}

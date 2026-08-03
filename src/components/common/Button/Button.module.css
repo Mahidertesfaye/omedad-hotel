@@ -1,0 +1,124 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  transition:
+    background-color var(--transition-base),
+    border-color var(--transition-base),
+    color var(--transition-base),
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Variants */
+.primary {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+.secondary {
+  background-color: var(--color-gray-100);
+  color: var(--color-text);
+}
+
+.outline {
+  background-color: transparent;
+  border-color: var(--color-border-strong);
+  color: var(--color-text);
+}
+
+.ghost {
+  background-color: transparent;
+  color: var(--color-text);
+}
+
+/* Sizes */
+.sm {
+  height: 2.25rem;
+  padding-inline: var(--space-4);
+  font-size: var(--text-xs);
+}
+
+.md {
+  height: 2.75rem;
+  padding-inline: var(--space-6);
+  font-size: var(--text-sm);
+}
+
+.lg {
+  height: 3.25rem;
+  padding-inline: var(--space-8);
+  font-size: var(--text-sm);
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .primary:not(:disabled):hover {
+    background-color: var(--color-primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px var(--color-shadow);
+  }
+
+  .secondary:not(:disabled):hover {
+    background-color: var(--color-gray-200);
+  }
+
+  .outline:not(:disabled):hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .ghost:not(:disabled):hover {
+    color: var(--color-primary);
+  }
+}
+
+.primary:active:not(:disabled) {
+  background-color: var(--color-primary-active);
+}
+
+.inverse.outline {
+  border-color: rgb(255 255 255 / 0.35);
+  color: var(--color-text-inverse);
+}
+
+.inverse.primary {
+  background-color: var(--color-white);
+  color: var(--color-primary);
+}
+
+.inverse.ghost {
+  color: var(--color-text-inverse);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .inverse.primary:not(:disabled):hover {
+    background-color: var(--color-gray-100);
+  }
+
+  .inverse.outline:not(:disabled):hover {
+    border-color: var(--color-white);
+    color: var(--color-white);
+  }
+
+  .inverse.ghost:not(:disabled):hover {
+    color: var(--color-white);
+    opacity: 0.85;
+  }
+}

@@ -1,0 +1,1 @@
+export { FeaturedRooms } from "./FeaturedRooms";

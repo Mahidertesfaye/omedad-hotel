@@ -1,0 +1,9 @@
+export { Hero } from "./hero/index";
+export { About } from "./about/index";
+export { FeaturedRooms } from "./featured-rooms/index";
+export { Amenities } from "./amenities/index";
+export { Restaurant } from "./restaurant/index";
+export { Gallery } from "./gallery/index";
+export { Testimonials } from "./testimonials/index";
+export { Location } from "./location/index";
+export { Booking } from "./booking/index";

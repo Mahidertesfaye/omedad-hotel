@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="720" viewBox="0 0 960 720" fill="none">
+  <defs>
+    <linearGradient id="room-bg" x1="0" y1="0" x2="960" y2="720" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1e3048"/>
+      <stop offset="50%" stop-color="#152238"/>
+      <stop offset="100%" stop-color="#0b1628"/>
+    </linearGradient>
+    <linearGradient id="room-light" x1="120" y1="80" x2="840" y2="640" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="720" fill="url(#room-bg)"/>
+  <rect width="960" height="720" fill="url(#room-light)"/>
+  <rect x="80" y="420" width="800" height="180" rx="2" stroke="#ffffff" stroke-opacity="0.12" stroke-width="1" fill="#ffffff" fill-opacity="0.04"/>
+  <rect x="120" y="380" width="720" height="60" rx="2" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1" fill="#ffffff" fill-opacity="0.03"/>
+  <rect x="80" y="120" width="360" height="240" rx="2" stroke="#ffffff" stroke-opacity="0.1" stroke-width="1" fill="#ffffff" fill-opacity="0.03"/>
+  <rect x="520" y="120" width="360" height="240" rx="2" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1" fill="#ffffff" fill-opacity="0.02"/>
+  <line x1="80" y1="420" x2="880" y2="420" stroke="#ffffff" stroke-opacity="0.06" stroke-width="1"/>
+  <text x="480" y="340" text-anchor="middle" fill="#ffffff" fill-opacity="0.16" font-family="Georgia, serif" font-size="22" letter-spacing="6">OMEDAD HOTEL</text>
+  <text x="480" y="375" text-anchor="middle" fill="#ffffff" fill-opacity="0.08" font-family="Arial, sans-serif" font-size="13" letter-spacing="3">ROOM PLACEHOLDER</text>
+</svg>

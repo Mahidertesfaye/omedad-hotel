@@ -1,0 +1,14 @@
+.overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    var(--pattern-weave-light),
+    linear-gradient(
+      180deg,
+      rgb(var(--color-navy-950-rgb) / calc(var(--hero-overlay-opacity) * 0.75)) 0%,
+      rgb(var(--color-navy-900-rgb) / var(--hero-overlay-opacity)) 45%,
+      rgb(var(--color-navy-950-rgb) / calc(var(--hero-overlay-opacity) + 0.12)) 100%
+    );
+  background-size: 32px 32px, 100% 100%;
+  pointer-events: none;
+}

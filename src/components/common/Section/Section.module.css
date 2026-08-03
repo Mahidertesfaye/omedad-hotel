@@ -1,0 +1,50 @@
+.section {
+  position: relative;
+  width: 100%;
+  isolation: isolate;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.default {
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+.alt {
+  background-color: var(--color-background-alt);
+  color: var(--color-text);
+}
+
+.alt::before {
+  background-image: var(--pattern-geometric-light);
+  background-size: 48px 48px;
+}
+
+.dark {
+  background-color: var(--color-background-dark);
+  color: var(--color-text-inverse);
+}
+
+.dark::before {
+  background-image: var(--pattern-geometric-dark);
+  background-size: 48px 48px;
+}
+
+.padding-default {
+  padding-block: var(--section-padding-y);
+}
+
+.padding-sm {
+  padding-block: var(--section-padding-y-sm);
+}
+
+.padding-none {
+  padding-block: 0;
+}

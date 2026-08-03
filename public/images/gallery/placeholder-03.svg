@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" fill="none">
+  <defs>
+    <linearGradient id="g3-bg" x1="0" y1="0" x2="800" y2="800" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1e3048"/>
+      <stop offset="50%" stop-color="#152238"/>
+      <stop offset="100%" stop-color="#0b1628"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="800" fill="url(#g3-bg)"/>
+  <circle cx="400" cy="360" r="160" stroke="#ffffff" stroke-opacity="0.1" fill="#ffffff" fill-opacity="0.03"/>
+  <rect x="160" y="560" width="480" height="12" rx="1" fill="#ffffff" fill-opacity="0.06"/>
+  <rect x="240" y="600" width="320" height="80" rx="2" stroke="#ffffff" stroke-opacity="0.08" fill="#ffffff" fill-opacity="0.02"/>
+  <text x="400" y="740" text-anchor="middle" fill="#ffffff" fill-opacity="0.12" font-family="Georgia, serif" font-size="18" letter-spacing="6">FINE DINING</text>
+</svg>

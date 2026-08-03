@@ -1,0 +1,25 @@
+.figure {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  aspect-ratio: 4 / 5;
+}
+
+.image {
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .figure:hover .image {
+    transform: scale(1.03);
+  }
+}
+
+@media (max-width: 768px) {
+  .figure {
+    aspect-ratio: 16 / 10;
+  }
+}

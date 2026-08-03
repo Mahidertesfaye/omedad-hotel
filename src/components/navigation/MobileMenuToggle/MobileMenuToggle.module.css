@@ -1,0 +1,54 @@
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  color: var(--color-white);
+  transition: color var(--transition-base);
+}
+
+.scrolled {
+  color: var(--color-primary-navy);
+}
+
+.open {
+  color: var(--color-white);
+}
+
+.lines {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1rem;
+}
+
+.line {
+  position: absolute;
+  right: 0;
+  height: 1px;
+  background-color: currentcolor;
+  transform-origin: center;
+}
+
+.line:nth-child(1) {
+  top: 0;
+}
+
+.line:nth-child(2) {
+  top: 50%;
+  margin-top: -0.5px;
+}
+
+.line:nth-child(3) {
+  bottom: 0;
+}
+
+@media (min-width: 769px) {
+  .toggle {
+    display: none;
+  }
+}

@@ -1,0 +1,21 @@
+.nav {
+  display: none;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+@media (min-width: 769px) {
+  .nav {
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+  .list {
+    gap: var(--space-2);
+  }
+}

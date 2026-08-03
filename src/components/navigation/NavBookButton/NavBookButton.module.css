@@ -1,0 +1,10 @@
+.bookButton {
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .bookButton {
+    width: 100%;
+    max-width: 16rem;
+  }
+}

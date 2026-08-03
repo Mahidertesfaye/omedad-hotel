@@ -1,0 +1,35 @@
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: clamp(var(--space-12), 6vw, var(--space-24));
+}
+
+.media {
+  position: relative;
+}
+
+.copy {
+  padding-block: var(--space-8);
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+  }
+
+  .copy {
+    padding-block: 0;
+  }
+}
+
+@media (min-width: 1025px) {
+  .media {
+    padding-right: var(--space-4);
+  }
+
+  .copy {
+    padding-left: var(--space-4);
+  }
+}

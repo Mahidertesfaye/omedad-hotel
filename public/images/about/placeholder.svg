@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="1200" viewBox="0 0 960 1200" fill="none">
+  <defs>
+    <linearGradient id="about-bg" x1="0" y1="0" x2="960" y2="1200" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1e3048"/>
+      <stop offset="50%" stop-color="#152238"/>
+      <stop offset="100%" stop-color="#0b1628"/>
+    </linearGradient>
+    <linearGradient id="about-light" x1="200" y1="100" x2="760" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="1200" fill="url(#about-bg)"/>
+  <rect width="960" height="1200" fill="url(#about-light)"/>
+  <rect x="80" y="120" width="800" height="520" rx="2" stroke="#ffffff" stroke-opacity="0.1" stroke-width="1" fill="#ffffff" fill-opacity="0.03"/>
+  <rect x="120" y="700" width="360" height="280" rx="2" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1" fill="#ffffff" fill-opacity="0.02"/>
+  <rect x="520" y="700" width="360" height="280" rx="2" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1" fill="#ffffff" fill-opacity="0.02"/>
+  <text x="480" y="620" text-anchor="middle" fill="#ffffff" fill-opacity="0.16" font-family="Georgia, serif" font-size="22" letter-spacing="6">OMEDAD HOTEL</text>
+  <text x="480" y="660" text-anchor="middle" fill="#ffffff" fill-opacity="0.08" font-family="Arial, sans-serif" font-size="13" letter-spacing="3">PLACEHOLDER IMAGE</text>
+</svg>

@@ -1,0 +1,20 @@
+.rating {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.star {
+  width: 1rem;
+  height: 1rem;
+}
+
+.filled {
+  fill: var(--color-primary-navy);
+  color: var(--color-primary-navy);
+}
+
+.empty {
+  fill: transparent;
+  color: var(--color-gray-300);
+}

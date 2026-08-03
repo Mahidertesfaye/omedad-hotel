@@ -1,0 +1,37 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: 42rem;
+  margin-inline: auto;
+  margin-bottom: clamp(var(--space-10), 5vw, var(--space-16));
+  text-align: center;
+}
+
+.heading {
+  margin: 0;
+}
+
+.grid {
+  display: none;
+  gap: clamp(var(--space-6), 3vw, var(--space-8));
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.sliderSkeleton {
+  width: 100%;
+  min-height: 28rem;
+  border-radius: var(--radius-md);
+}
+
+@media (max-width: 1023px) {
+  .sliderSkeleton {
+    min-height: 24rem;
+  }
+}

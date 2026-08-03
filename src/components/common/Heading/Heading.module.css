@@ -1,0 +1,49 @@
+.heading {
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text);
+}
+
+.display {
+  font-family: var(--font-heading);
+}
+
+.default {
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--tracking-normal);
+}
+
+.level-1 {
+  font-size: clamp(var(--text-4xl), 5vw, var(--text-7xl));
+}
+
+.level-2 {
+  font-size: clamp(var(--text-3xl), 4vw, var(--text-5xl));
+}
+
+.level-3 {
+  font-size: clamp(var(--text-2xl), 3vw, var(--text-4xl));
+}
+
+.level-4 {
+  font-size: clamp(var(--text-xl), 2.5vw, var(--text-3xl));
+}
+
+.level-5 {
+  font-size: clamp(var(--text-lg), 2vw, var(--text-2xl));
+}
+
+.level-6 {
+  font-size: var(--text-xl);
+}
+
+.muted {
+  color: var(--color-text-muted);
+}
+
+.inverse {
+  color: var(--color-text-inverse);
+}

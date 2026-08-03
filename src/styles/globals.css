@@ -1,0 +1,27 @@
+@import "./variables.css";
+@import "./reset.css";
+@import "./typography.css";
+@import "./utilities.css";
+@import "./patterns.css";
+@import "lenis/dist/lenis.css";
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+::selection {
+  background-color: var(--color-navy-900);
+  color: var(--color-white);
+}

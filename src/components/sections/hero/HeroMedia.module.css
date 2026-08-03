@@ -1,0 +1,16 @@
+.media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.asset {
+  object-fit: cover;
+}
+
+.media video.asset {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

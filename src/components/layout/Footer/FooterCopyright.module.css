@@ -1,0 +1,10 @@
+.copyright {
+  margin: 0;
+}
+
+.copyright small {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
+  color: rgb(255 255 255 / 0.45);
+}
