@@ -50,9 +50,18 @@ export function LocationContent() {
             <Phone className={styles.contactIcon} strokeWidth={1.25} aria-hidden="true" />
             <div>
               <span className={styles.contactLabel}>Phone</span>
-              <a href={`tel:${contact.phone.replace(/\s/g, "")}`} className={styles.contactLink}>
-                {contact.phone}
-              </a>
+              <div className={styles.phoneStack}>
+                {(contact.phones ?? [
+                  {
+                    display: contact.phone,
+                    href: `tel:${contact.phone.replace(/\s/g, "")}`,
+                  },
+                ]).map((phone) => (
+                  <a key={phone.href} href={phone.href} className={styles.contactLink}>
+                    {phone.display}
+                  </a>
+                ))}
+              </div>
             </div>
           </li>
 

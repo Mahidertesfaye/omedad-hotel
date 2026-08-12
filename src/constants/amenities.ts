@@ -2,59 +2,60 @@ import type { Amenity } from "@/types/amenities";
 
 export const AMENITIES_CONTENT = {
   overline: "Amenities & Services",
-  heading: "Every comfort, thoughtfully considered",
+  heading: "Comforts for business and leisure",
   description:
-    "From fine dining to restorative wellness, discover a curated collection of services designed to elevate every moment of your stay.",
+    "From all-day dining to wellness and meetings — services designed for travelers arriving in Addis Ababa.",
 } as const;
 
+/** Facilities highlighted on Omedad Hotel's official website. */
 export const AMENITIES: Amenity[] = [
   {
     id: "restaurant",
-    title: "Restaurant",
+    title: "All-Day Dining",
     description:
-      "Savor refined cuisine and traditional Ethiopian coffee in an elegant dining room with impeccable service.",
+      "Global flavors, fresh ingredients, and Ethiopian hospitality throughout the day — 6:30 AM to 11:00 PM.",
     icon: "restaurant",
   },
   {
-    id: "wifi",
-    title: "High-Speed WiFi",
+    id: "bar",
+    title: "Bar & Lounge",
     description:
-      "Stay seamlessly connected with complimentary high-speed wireless internet throughout the hotel.",
-    icon: "wifi",
-  },
-  {
-    id: "conference",
-    title: "Conference Room",
-    description:
-      "Host meetings and events in sophisticated spaces equipped with modern audiovisual technology.",
-    icon: "conference",
-  },
-  {
-    id: "shuttle",
-    title: "Airport Shuttle",
-    description:
-      "Arrive and depart with ease via our complimentary shuttle service to and from the airport.",
-    icon: "shuttle",
+      "A space to relax with drinks and light snacks after a flight or a day in the city.",
+    icon: "bar",
   },
   {
     id: "gym",
     title: "Fitness Center",
     description:
-      "Maintain your routine in a fully equipped gym with premium cardio and strength training facilities.",
+      "A state-of-the-art fitness center with modern equipment and personal trainers.",
     icon: "gym",
   },
   {
     id: "spa",
     title: "Spa & Wellness",
     description:
-      "Unwind with bespoke treatments and tranquil therapies designed to restore body and mind.",
+      "A luxury spa incorporating traditional Ethiopian healing techniques.",
     icon: "spa",
   },
   {
-    id: "parking",
-    title: "Valet Parking",
+    id: "conference",
+    title: "Meetings & Events",
     description:
-      "Enjoy the convenience of secure on-site parking with attentive valet service upon arrival.",
-    icon: "parking",
+      "Modern spaces for meetings, conferences, and professional gatherings in the heart of Addis Ababa.",
+    icon: "conference",
+  },
+  {
+    id: "reception",
+    title: "24-Hour Reception",
+    description:
+      "Round-the-clock reception so arrivals and departures fit your schedule — day or night.",
+    icon: "reception",
+  },
+  {
+    id: "concierge",
+    title: "Concierge",
+    description:
+      "Attentive concierge service with convenient access to major business destinations.",
+    icon: "concierge",
   },
 ];

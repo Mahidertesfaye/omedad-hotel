@@ -14,6 +14,11 @@ function isPathLink(href: string): boolean {
   return href.startsWith("/") && !href.startsWith("/#");
 }
 
+function getSpySectionId(link: NavLink): string | null {
+  if (link.sectionId) return link.sectionId;
+  return getHashId(link.href);
+}
+
 export function useActiveNavLink(links: readonly NavLink[]): string {
   const pathname = usePathname();
   const [activeHref, setActiveHref] = useState("");
@@ -32,14 +37,13 @@ export function useActiveNavLink(links: readonly NavLink[]): string {
     }
 
     if (pathname !== "/") {
-      const homeLink = links.find((link) => link.href === "/");
-      setActiveHref(homeLink?.href ?? "");
+      setActiveHref("");
       return;
     }
 
     const hashTargets = links
       .map((link) => {
-        const id = getHashId(link.href);
+        const id = getSpySectionId(link);
         if (!id) return null;
         const element = document.getElementById(id);
         return element ? { href: link.href, element } : null;
@@ -47,29 +51,38 @@ export function useActiveNavLink(links: readonly NavLink[]): string {
       .filter(Boolean) as { href: string; element: HTMLElement }[];
 
     const homeLink = links.find((link) => link.href === "/");
-    setActiveHref(homeLink?.href ?? links[0]?.href ?? "");
+    const ratios = new Map<Element, number>();
+
+    const syncActive = () => {
+      let bestHref = "";
+      let bestRatio = 0;
+
+      for (const target of hashTargets) {
+        const ratio = ratios.get(target.element) ?? 0;
+        if (ratio > bestRatio) {
+          bestRatio = ratio;
+          bestHref = target.href;
+        }
+      }
+
+      if (bestHref) {
+        setActiveHref(bestHref);
+      }
+    };
+
+    setActiveHref(homeLink?.href ?? "");
 
     if (hashTargets.length === 0) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-
-        if (visible.length > 0) {
-          const match = hashTargets.find(
-            (target) => target.element === visible[0].target,
+        for (const entry of entries) {
+          ratios.set(
+            entry.target,
+            entry.isIntersecting ? entry.intersectionRatio : 0,
           );
-          if (match) {
-            setActiveHref(match.href);
-            return;
-          }
         }
-
-        if (window.scrollY < 120 && homeLink) {
-          setActiveHref(homeLink.href);
-        }
+        syncActive();
       },
       {
         rootMargin: "-20% 0px -60% 0px",

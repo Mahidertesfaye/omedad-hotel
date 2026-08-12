@@ -9,6 +9,7 @@ export { PageHero } from "./PageHero";
 export { Card } from "./Card";
 export { Select } from "./Select";
 export type { SelectOption, SelectProps } from "./Select";
+export { HotelStarRating } from "./HotelStarRating";
 export { Skeleton, PageSkeleton, MapSkeleton } from "./Skeleton";
 export { OptimizedImage } from "./OptimizedImage";
-export { BookingSearch } from "@/components/booking";
+export { BookingPartners, BookingSearch } from "@/components/booking";

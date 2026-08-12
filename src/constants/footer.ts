@@ -3,13 +3,14 @@ import { CONTACT, NAV_LINKS, SOCIAL_LINKS } from "@/constants/site";
 import type { FooterContent, FooterSocialLink } from "@/types/footer";
 
 export const FOOTER_CONTENT: FooterContent = {
-  tagline: "Refined luxury and Ethiopian hospitality in the heart of Addis Ababa.",
+  tagline:
+    "A modern city hotel in Bole, Addis Ababa — approximately 6 minutes from Bole International Airport.",
   navHeading: "Explore",
   contactHeading: "Contact",
   socialHeading: "Follow Us",
   newsletter: {
     heading: "Stay Informed",
-    description: "Receive exclusive offers, seasonal menus, and hotel news.",
+    description: "Receive updates, seasonal dining news, and hotel announcements.",
     placeholder: "Your email address",
     submitLabel: "Subscribe",
     successMessage: "Thank you for subscribing. We look forward to welcoming you.",

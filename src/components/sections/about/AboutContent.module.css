@@ -11,20 +11,29 @@
 .description {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
-  max-width: 34rem;
+  gap: var(--space-5);
+  max-width: 36rem;
+  padding-block-end: var(--space-2);
+  border-block-end: 1px solid var(--color-border-light);
 }
 
 .paragraph {
+  margin: 0;
   font-family: var(--font-body);
-  font-size: var(--text-lg);
+  font-size: var(--text-base);
   font-weight: var(--font-weight-regular);
   line-height: var(--leading-relaxed);
+  letter-spacing: 0.01em;
   color: var(--color-text-muted);
 }
 
+.lead {
+  font-size: var(--text-lg);
+  color: var(--color-text);
+}
+
 .cta {
-  margin-top: var(--space-4);
+  margin-top: var(--space-2);
 }
 
 @media (max-width: 768px) {
@@ -32,7 +41,11 @@
     gap: var(--space-5);
   }
 
-  .paragraph {
+  .description {
+    gap: var(--space-4);
+  }
+
+  .lead {
     font-size: var(--text-base);
   }
 

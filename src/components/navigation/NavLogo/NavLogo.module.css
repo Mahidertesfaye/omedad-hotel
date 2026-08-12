@@ -12,7 +12,7 @@
 
 .scrolled .logoImage {
   height: 2.25rem;
-  /* White asset → dark navy on light scrolled header */
+  /* Light header: white mark → dark navy */
   filter: brightness(0) saturate(100%) invert(14%) sepia(28%) saturate(1847%)
     hue-rotate(182deg) brightness(92%) contrast(92%);
 }

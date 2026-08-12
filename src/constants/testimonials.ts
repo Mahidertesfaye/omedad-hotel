@@ -2,72 +2,64 @@ import type { Testimonial, TestimonialsContent } from "@/types/testimonials";
 
 export const TESTIMONIALS_CONTENT: TestimonialsContent = {
   overline: "Guest Experiences",
-  heading: "Words from those who have stayed with us",
+  heading: "What guests appreciate about their stay",
   description:
-    "Our guests come from around the world. Here is what they share about their time at Omedad Hotel.",
+    "Guests often mention airport convenience, comfortable rooms, attentive staff, and well-equipped meeting spaces — themes reflected on Omedad Hotel’s own guest testimonials.",
 };
 
 const AVATAR_PLACEHOLDER = "/images/testimonials/avatar-placeholder.svg";
 
+/**
+ * Theme-aligned guest feedback based on emphases shown on the official website.
+ * Replace with verified quotes and attribution when the hotel supplies them.
+ */
 export const TESTIMONIALS: Testimonial[] = [
   {
-    id: "sarah-mitchell",
-    name: "Sarah Mitchell",
-    country: "United Kingdom",
+    id: "airport-convenience",
+    name: "Business traveler",
+    country: "Addis Ababa stay",
     rating: 5,
     review:
-      "From the moment we arrived, every detail felt considered. The suite was immaculate, the staff remembered our preferences, and dining at The Grand Table was an experience we will not soon forget.",
+      "The location near Bole International Airport made arrivals and departures effortless. Reception was ready around the clock, and the stay felt calm after a long flight.",
     photo: {
       src: AVATAR_PLACEHOLDER,
-      alt: "Portrait of Sarah Mitchell",
+      alt: "Guest avatar placeholder",
     },
   },
   {
-    id: "james-chen",
-    name: "James Chen",
-    country: "Singapore",
+    id: "rooms-comfort",
+    name: "Leisure guest",
+    country: "Addis Ababa stay",
     rating: 5,
     review:
-      "A rare balance of grandeur and warmth. The lobby alone sets the tone, but it is the thoughtful service throughout the stay that truly distinguishes Omedad Hotel from other luxury properties.",
+      "Spacious, clean rooms and a comfortable bed made rest easy. Housekeeping was attentive, and the hotel felt modern without losing Ethiopian warmth.",
     photo: {
       src: AVATAR_PLACEHOLDER,
-      alt: "Portrait of James Chen",
+      alt: "Guest avatar placeholder",
     },
   },
   {
-    id: "elena-rossi",
-    name: "Elena Rossi",
-    country: "Italy",
+    id: "meeting-facilities",
+    name: "Conference guest",
+    country: "Addis Ababa stay",
     rating: 5,
     review:
-      "We chose Omedad for a special anniversary and were delighted at every turn. The spa, the room, the quiet attention to detail — everything felt personal, unhurried, and genuinely luxurious.",
+      "The meeting venue was modern, spacious, and well-equipped for professional gatherings. Staff were attentive from setup through to the end of the day.",
     photo: {
       src: AVATAR_PLACEHOLDER,
-      alt: "Portrait of Elena Rossi",
+      alt: "Guest avatar placeholder",
     },
   },
   {
-    id: "david-okonkwo",
-    name: "David Okonkwo",
-    country: "Nigeria",
+    id: "city-access",
+    name: "City visitor",
+    country: "Addis Ababa stay",
     rating: 5,
     review:
-      "I travel frequently for business and Omedad stands out for its consistency. Fast WiFi, a well-equipped gym, seamless airport transfer, and a team that makes you feel welcome after a long flight.",
+      "A convenient base for exploring landmarks and business destinations across Addis Ababa — close to the airport, with a team that made every request feel simple.",
     photo: {
       src: AVATAR_PLACEHOLDER,
-      alt: "Portrait of David Okonkwo",
-    },
-  },
-  {
-    id: "marie-dubois",
-    name: "Marie Dubois",
-    country: "France",
-    rating: 5,
-    review:
-      "An elegant hotel with a sense of place. The design is refined without being cold, and the city views from our room at sunset over Addis Ababa were simply unforgettable. We will return on our next visit to Ethiopia.",
-    photo: {
-      src: AVATAR_PLACEHOLDER,
-      alt: "Portrait of Marie Dubois",
+      alt: "Guest avatar placeholder",
     },
   },
 ];

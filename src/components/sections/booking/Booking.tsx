@@ -1,6 +1,6 @@
 "use client";
 
-import { BookingSearch } from "@/components/booking";
+import { BookingPartners, BookingSearch } from "@/components/booking";
 import { Section } from "@/components/common/Section";
 import { PageContainer, SectionHeader } from "@/components/ui";
 import { BOOKING_CONTENT } from "@/constants/booking";
@@ -22,6 +22,7 @@ export function Booking() {
         />
 
         <BookingSearch variant="solid" className={styles.search} />
+        <BookingPartners />
       </PageContainer>
     </Section>
   );

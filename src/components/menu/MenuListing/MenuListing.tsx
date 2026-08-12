@@ -20,15 +20,16 @@ export function MenuListing() {
         ariaLabel="Restaurant menu"
         className={styles.section}
       >
-        <PageContainer size="narrow">
+        <PageContainer>
           <p className={styles.notice}>{MENU_PAGE_CONTENT.demoNotice}</p>
 
           <div className={styles.sections}>
-            {MENU_CATEGORIES.map((category) => (
+            {MENU_CATEGORIES.map((category, index) => (
               <MenuSection
                 key={category.id}
                 category={category}
                 items={getMenuItemsByCategory(category.id)}
+                index={index}
               />
             ))}
           </div>

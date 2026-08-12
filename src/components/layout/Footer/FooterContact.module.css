@@ -46,8 +46,16 @@
   color: rgb(255 255 255 / 0.78);
 }
 
+.phoneStack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
 .link {
   position: relative;
+  display: inline-block;
+  width: fit-content;
   font-family: var(--font-body);
   font-size: var(--text-sm);
   line-height: var(--leading-relaxed);

@@ -16,8 +16,23 @@
   border-radius: var(--radius-md);
 }
 
+.cta {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-10);
+}
+
 @media (max-width: 1023px) {
   .sliderSkeleton {
     min-height: 24rem;
+  }
+
+  .cta {
+    margin-top: var(--space-8);
+  }
+
+  .cta a,
+  .cta button {
+    width: 100%;
   }
 }

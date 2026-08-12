@@ -14,13 +14,13 @@ const MENU_IMAGE = {
 export const MENU_PAGE_CONTENT = {
   title: "Dining at Omedad",
   subtitle:
-    "Discover a selection of Ethiopian favorites and international cuisine.",
+    "Traditional Ethiopian cuisine and international favorites — all-day dining from 6:30 AM to 11:00 PM.",
   breadcrumb: [
     { label: "Home", href: "/" },
     { label: "Dining", href: "/menu" },
   ],
   demoNotice:
-    "Demo menu for design and browsing. Dishes, prices, and descriptions will be replaced with the hotel’s official restaurant menu.",
+    "Sample menu for browsing. Official dishes and prices will be published when supplied by the hotel. Restaurant hours: 6:30 AM – 11:00 PM.",
 } as const;
 
 export const MENU_CATEGORIES: MenuCategory[] = [

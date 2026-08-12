@@ -1,4 +1,4 @@
-import { PrimaryButton } from "@/components/ui";
+import { HotelStarRating, PrimaryButton } from "@/components/ui";
 import { HERO_CONTENT } from "@/constants/hero";
 import styles from "./HeroContent.module.css";
 
@@ -14,9 +14,16 @@ interface HeroContentProps {
 export function HeroContent({ contentRefs }: HeroContentProps) {
   return (
     <div className={styles.content}>
-      <p ref={contentRefs?.overline} className={styles.overline}>
-        {HERO_CONTENT.overline}
-      </p>
+      <div className={styles.meta}>
+        <p ref={contentRefs?.overline} className={styles.overline}>
+          {HERO_CONTENT.overline}
+        </p>
+        <HotelStarRating
+          rating={HERO_CONTENT.starRating}
+          label={HERO_CONTENT.starLabel}
+          variant="inverse"
+        />
+      </div>
 
       <h1 ref={contentRefs?.headline} className={styles.headline}>
         {HERO_CONTENT.headline}

@@ -15,10 +15,16 @@ export interface LocationMarker {
   distance?: string;
 }
 
+export interface LocationPhone {
+  display: string;
+  href: string;
+}
+
 export interface LocationContact {
   address: string;
   addressLine2?: string;
   phone: string;
+  phones?: readonly LocationPhone[];
   email: string;
 }
 

@@ -1,11 +1,14 @@
 import { ImageResponse } from "next/og";
 import { SITE_DESCRIPTION, SITE_NAME } from "@/constants/site";
+import { getOmedadLogoDataUrl } from "@/lib/brand-logo";
 
 export const alt = `${SITE_NAME} — luxury hospitality in Addis Ababa`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export default function OpenGraphImage() {
+export default async function OpenGraphImage() {
+  const logoSrc = await getOmedadLogoDataUrl();
+
   return new ImageResponse(
     (
       <div
@@ -16,7 +19,8 @@ export default function OpenGraphImage() {
           flexDirection: "column",
           justifyContent: "flex-end",
           padding: "72px 80px",
-          background: "linear-gradient(145deg, #081624 0%, #0b1f3a 45%, #12325a 100%)",
+          background:
+            "linear-gradient(145deg, #081624 0%, #0b1f3a 45%, #12325a 100%)",
           color: "#ffffff",
         }}
       >
@@ -28,21 +32,13 @@ export default function OpenGraphImage() {
             marginBottom: 32,
           }}
         >
-          <div
-            style={{
-              width: 72,
-              height: 72,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              border: "2px solid rgb(255 255 255 / 0.35)",
-              borderRadius: 4,
-              fontSize: 40,
-              fontFamily: "Georgia, serif",
-            }}
-          >
-            O
-          </div>
+          <img
+            src={logoSrc}
+            alt=""
+            width={96}
+            height={84}
+            style={{ objectFit: "contain" }}
+          />
           <div
             style={{
               fontSize: 56,

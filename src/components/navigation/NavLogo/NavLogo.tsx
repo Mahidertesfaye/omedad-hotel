@@ -2,9 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import type { MouseEvent } from "react";
 import { SITE_NAME } from "@/constants/site";
-import { cn } from "@/utils";
+import { usePrefersReducedMotion } from "@/hooks/useMediaQuery";
 import { useLogoScale } from "@/hooks/useLogoScale";
+import { cn } from "@/utils";
 import styles from "./NavLogo.module.css";
 
 interface NavLogoProps {
@@ -13,18 +16,31 @@ interface NavLogoProps {
 }
 
 export function NavLogo({ isScrolled, onNavigate }: NavLogoProps) {
+  const pathname = usePathname();
+  const prefersReducedMotion = usePrefersReducedMotion();
   const logoRef = useLogoScale<HTMLAnchorElement>();
+
+  const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (pathname === "/") {
+      event.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: prefersReducedMotion ? "auto" : "smooth",
+      });
+    }
+    onNavigate?.();
+  };
 
   return (
     <Link
       ref={logoRef}
       href="/"
       className={cn(styles.logo, isScrolled && styles.scrolled)}
-      onClick={onNavigate}
+      onClick={handleClick}
       aria-label={`${SITE_NAME} — Home`}
     >
       <Image
-        src="/logo.png"
+        src="/omedad-logo.png"
         alt={SITE_NAME}
         width={140}
         height={140}

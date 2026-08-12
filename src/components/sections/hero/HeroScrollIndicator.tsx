@@ -25,9 +25,8 @@ export function HeroScrollIndicator({
       onClick={handleClick}
       aria-label="Scroll to explore"
     >
-      <span className={styles.label}>Explore</span>
-      <span className={styles.line} aria-hidden="true">
-        <span className={styles.dot} />
+      <span className={styles.mouse} aria-hidden="true">
+        <span className={styles.wheel} />
       </span>
     </button>
   );

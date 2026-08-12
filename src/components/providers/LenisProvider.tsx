@@ -19,9 +19,10 @@ export function LenisProvider({ children }: LenisProviderProps) {
     if (prefersReducedMotion) return;
 
     const lenis = new Lenis({
-      duration: 1.15,
+      duration: 0.9,
       smoothWheel: true,
-      touchMultiplier: 1.5,
+      touchMultiplier: 1.2,
+      wheelMultiplier: 1,
     });
 
     let frameId = 0;

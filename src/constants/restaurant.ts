@@ -1,11 +1,11 @@
 import type { RestaurantContent, RestaurantMedia } from "@/types/restaurant";
 
 export const RESTAURANT_CONTENT: RestaurantContent = {
-  overline: "Fine Dining",
-  heading: "Where every course tells a story of craft and refinement",
+  overline: "Dining",
+  heading: "Ethiopian flavors, international favorites, all-day dining",
   description: [
-    "The Grand Table offers an intimate dining experience rooted in seasonal ingredients, classical technique, and the warm hospitality Omedad Hotel is known for.",
-    "From leisurely breakfasts to candlelit dinners, our chefs compose menus that celebrate Ethiopian heritage — from the coffee ceremony to regional flavors — while embracing contemporary elegance. A destination in itself for discerning guests and Addis Ababa locals alike.",
+    "Our restaurant combines traditional Ethiopian cuisine with modern culinary techniques — offering authentic injera and wot dishes alongside international favorites, prepared with locally sourced ingredients.",
+    "Enjoy a traditional Ethiopian coffee ceremony, a contemporary fusion menu, an extensive wine list, and light snacks in the bar & lounge. All-day dining from 6:30 AM to 11:00 PM.",
   ],
   cta: {
     label: "View the Menu",
@@ -18,5 +18,5 @@ export const RESTAURANT_CONTENT: RestaurantContent = {
  */
 export const RESTAURANT_MEDIA: RestaurantMedia = {
   src: "/images/restaurant/placeholder.svg",
-  alt: "The Grand Table — elegant restaurant interior at Omedad Hotel",
+  alt: "Restaurant dining at Omedad Hotel — Ethiopian and international cuisine",
 };

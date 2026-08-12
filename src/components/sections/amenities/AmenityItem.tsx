@@ -2,13 +2,13 @@
 
 import { motion } from "framer-motion";
 import {
-  Bus,
-  CircleParking,
+  ConciergeBell,
+  Clock,
   Dumbbell,
   Sparkles,
   Users,
   UtensilsCrossed,
-  Wifi,
+  Wine,
   type LucideIcon,
 } from "lucide-react";
 import { usePrefersReducedMotion } from "@/hooks/useMediaQuery";
@@ -17,12 +17,12 @@ import styles from "./AmenityItem.module.css";
 
 const AMENITY_ICONS: Record<AmenityIcon, LucideIcon> = {
   restaurant: UtensilsCrossed,
-  wifi: Wifi,
+  bar: Wine,
   conference: Users,
-  shuttle: Bus,
   gym: Dumbbell,
   spa: Sparkles,
-  parking: CircleParking,
+  reception: Clock,
+  concierge: ConciergeBell,
 };
 
 interface AmenityItemProps {

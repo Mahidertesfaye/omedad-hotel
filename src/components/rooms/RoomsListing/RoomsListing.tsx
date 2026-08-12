@@ -26,7 +26,7 @@ export function RoomsListing() {
       className={styles.section}
     >
       <PageContainer>
-        <p className={styles.notice}>{ROOMS_PAGE_CONTENT.demoNotice}</p>
+        <p className={styles.notice}>{ROOMS_PAGE_CONTENT.notice}</p>
 
         <div className={styles.toolbar}>
           <RoomFilters

@@ -45,6 +45,7 @@ export function Button({
           target="_blank"
           rel="noopener noreferrer"
           onClick={onClick}
+          {...props}
         >
           {children}
         </a>
@@ -52,7 +53,7 @@ export function Button({
     }
 
     return (
-      <Link href={href} className={classes} onClick={onClick}>
+      <Link href={href} className={classes} onClick={onClick} {...props}>
         {children}
       </Link>
     );

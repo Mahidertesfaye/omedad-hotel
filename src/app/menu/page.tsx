@@ -5,14 +5,14 @@ import { SITE_NAME } from "@/constants/site";
 export const metadata: Metadata = {
   title: "Dining Menu",
   description:
-    "Browse a demo dining menu at Omedad Hotel — Ethiopian specialties and international cuisine. Official menu details coming soon.",
+    "Ethiopian cuisine, international favorites, coffee ceremony, and all-day dining at Omedad Hotel — 6:30 AM to 11:00 PM.",
   alternates: {
     canonical: "/menu",
   },
   openGraph: {
     title: `Dining at Omedad | ${SITE_NAME}`,
     description:
-      "Discover Ethiopian favorites and international cuisine at Omedad Hotel.",
+      "Traditional Ethiopian dishes and international favorites at Omedad Hotel in Bole, Addis Ababa.",
     url: "/menu",
   },
 };

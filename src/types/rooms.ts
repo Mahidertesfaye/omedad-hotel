@@ -14,7 +14,9 @@ export interface FeaturedRoom {
   title: string;
   description: string;
   amenities: string[];
-  price: FeaturedRoomPrice;
+  /** Starting rate — shown as a top-right image overlay on cards. */
+  price?: FeaturedRoomPrice | null;
+  availabilityLabel?: string;
   image: FeaturedRoomImage;
   href: string;
 }
@@ -25,9 +27,9 @@ export interface RoomImage {
   alt: string;
 }
 
-export type RoomType = "deluxe" | "suite" | "presidential" | "standard";
+export type RoomType = "king" | "twin" | "junior" | "suite" | "extra";
 
-export type BedType = "King" | "Queen" | "Twin" | "King + Sofa Bed";
+export type BedType = "King" | "Twin";
 
 export interface Room {
   id: string;
@@ -36,9 +38,10 @@ export interface Room {
   description: string;
   image: RoomImage;
   gallery: RoomImage[];
-  price: number;
-  currency: string;
-  size: string;
+  /** Starting nightly rate — shown as a top-right image overlay on cards. */
+  price?: number | null;
+  currency?: string;
+  size?: string;
   bedType: BedType;
   guests: number;
   amenities: string[];
@@ -50,5 +53,4 @@ export interface RoomFiltersState {
   roomType: RoomType | "all";
   guests: number | "all";
   bedType: BedType | "all";
-  priceRange: "all" | "under-300" | "300-500" | "over-500";
 }

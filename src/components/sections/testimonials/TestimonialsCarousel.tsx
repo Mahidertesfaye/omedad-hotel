@@ -1,41 +1,57 @@
 "use client";
 
-import { useRef } from "react";
+import { useCallback, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import {
-  A11y,
-  Autoplay,
-  EffectFade,
-  Navigation,
-  Pagination,
-} from "swiper/modules";
+import type { Swiper as SwiperInstance } from "swiper";
+import { A11y, Autoplay, Pagination } from "swiper/modules";
 import { TESTIMONIALS } from "@/constants/testimonials";
 import { usePrefersReducedMotion } from "@/hooks/useMediaQuery";
 import { TestimonialCard } from "./TestimonialCard";
 import styles from "./TestimonialsCarousel.module.css";
 
 import "swiper/css";
-import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "swiper/css/effect-fade";
+
+const PAGINATION_SELECTOR = "[data-testimonials-pagination]";
 
 export function TestimonialsCarousel() {
-  const prevRef = useRef<HTMLButtonElement>(null);
-  const nextRef = useRef<HTMLButtonElement>(null);
+  const [swiper, setSwiper] = useState<SwiperInstance | null>(null);
   const prefersReducedMotion = usePrefersReducedMotion();
+  const canNavigate = TESTIMONIALS.length > 1;
+
+  const goPrev = useCallback(() => {
+    swiper?.slidePrev();
+  }, [swiper]);
+
+  const goNext = useCallback(() => {
+    swiper?.slideNext();
+  }, [swiper]);
 
   return (
     <div className={styles.carousel}>
       <Swiper
-        modules={[A11y, Autoplay, EffectFade, Navigation, Pagination]}
+        modules={[A11y, Autoplay, Pagination]}
+        onSwiper={(instance) => {
+          setSwiper(instance);
+
+          if (
+            canNavigate &&
+            typeof instance.params.pagination === "object" &&
+            instance.params.pagination
+          ) {
+            instance.params.pagination.el = PAGINATION_SELECTOR;
+            instance.pagination.init();
+            instance.pagination.render();
+            instance.pagination.update();
+          }
+        }}
         slidesPerView={1}
-        effect="fade"
-        fadeEffect={{ crossFade: true }}
-        loop
-        speed={650}
+        spaceBetween={32}
+        loop={canNavigate}
+        speed={prefersReducedMotion ? 0 : 550}
         autoplay={
-          prefersReducedMotion
+          prefersReducedMotion || !canNavigate
             ? false
             : {
                 delay: 6000,
@@ -43,28 +59,21 @@ export function TestimonialsCarousel() {
                 pauseOnMouseEnter: true,
               }
         }
-        pagination={{ clickable: true }}
-        navigation={{
-          prevEl: prevRef.current,
-          nextEl: nextRef.current,
-        }}
-        onBeforeInit={(swiper) => {
-          if (typeof swiper.params.navigation === "object") {
-            swiper.params.navigation.prevEl = prevRef.current;
-            swiper.params.navigation.nextEl = nextRef.current;
-          }
-        }}
-        onSwiper={(swiper) => {
-          if (typeof swiper.params.navigation === "object") {
-            swiper.params.navigation.prevEl = prevRef.current;
-            swiper.params.navigation.nextEl = nextRef.current;
-            swiper.navigation.init();
-            swiper.navigation.update();
-          }
-        }}
+        pagination={
+          canNavigate
+            ? {
+                el: PAGINATION_SELECTOR,
+                clickable: true,
+                bulletClass: styles.bullet,
+                bulletActiveClass: styles.bulletActive,
+              }
+            : false
+        }
         a11y={{
+          enabled: true,
           prevSlideMessage: "Previous testimonial",
           nextSlideMessage: "Next testimonial",
+          paginationBulletMessage: "Go to testimonial {{index}}",
         }}
         className={styles.swiper}
         aria-label="Guest testimonials carousel"
@@ -76,24 +85,32 @@ export function TestimonialsCarousel() {
         ))}
       </Swiper>
 
-      <div className={styles.navigation}>
-        <button
-          ref={prevRef}
-          type="button"
-          className={`${styles.navButton} ${styles.navPrev}`}
-          aria-label="Previous testimonial"
-        >
-          <ChevronLeft aria-hidden="true" />
-        </button>
-        <button
-          ref={nextRef}
-          type="button"
-          className={`${styles.navButton} ${styles.navNext}`}
-          aria-label="Next testimonial"
-        >
-          <ChevronRight aria-hidden="true" />
-        </button>
-      </div>
+      {canNavigate ? (
+        <div className={styles.controls}>
+          <button
+            type="button"
+            className={styles.navButton}
+            aria-label="Previous testimonial"
+            onClick={goPrev}
+          >
+            <ChevronLeft aria-hidden="true" />
+          </button>
+
+          <div
+            className={styles.pagination}
+            data-testimonials-pagination
+          />
+
+          <button
+            type="button"
+            className={styles.navButton}
+            aria-label="Next testimonial"
+            onClick={goNext}
+          >
+            <ChevronRight aria-hidden="true" />
+          </button>
+        </div>
+      ) : null}
     </div>
   );
 }

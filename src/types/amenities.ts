@@ -1,11 +1,11 @@
 export type AmenityIcon =
   | "restaurant"
-  | "wifi"
+  | "bar"
   | "conference"
-  | "shuttle"
   | "gym"
   | "spa"
-  | "parking";
+  | "reception"
+  | "concierge";
 
 export interface Amenity {
   id: string;

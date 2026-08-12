@@ -15,8 +15,13 @@ export function AboutContent() {
       </SectionTitle>
 
       <div className={styles.description}>
-        {ABOUT_CONTENT.description.map((paragraph) => (
-          <p key={paragraph.slice(0, 24)} className={styles.paragraph}>
+        {ABOUT_CONTENT.description.map((paragraph, index) => (
+          <p
+            key={paragraph.slice(0, 24)}
+            className={
+              index === 0 ? `${styles.paragraph} ${styles.lead}` : styles.paragraph
+            }
+          >
             {paragraph}
           </p>
         ))}

@@ -12,7 +12,8 @@ interface MenuCategoryNavProps {
 export function MenuCategoryNav({ categories }: MenuCategoryNavProps) {
   const [activeId, setActiveId] = useState<MenuCategoryId>(
     categories[0]?.id ?? "breakfast",
-  );  const [isStuck, setIsStuck] = useState(false);
+  );
+  const [isStuck, setIsStuck] = useState(false);
   const sentinelRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -87,25 +88,31 @@ export function MenuCategoryNav({ categories }: MenuCategoryNavProps) {
         className={cn(styles.nav, isStuck && styles.stuck)}
         aria-label="Menu categories"
       >
-        <div className={styles.scroller}>
-          <ul className={styles.list}>
-            {categories.map((category) => {
-              const isActive = activeId === category.id;
+        <div className={styles.inner}>
+          <p className={styles.label}>Browse</p>
+          <div className={styles.scroller}>
+            <ul className={styles.list}>
+              {categories.map((category, index) => {
+                const isActive = activeId === category.id;
 
-              return (
-                <li key={category.id}>
-                  <a
-                    href={`#menu-${category.id}`}
-                    className={cn(styles.link, isActive && styles.active)}
-                    aria-current={isActive ? "true" : undefined}
-                    onClick={(event) => handleClick(event, category.id)}
-                  >
-                    {category.label}
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
+                return (
+                  <li key={category.id}>
+                    <a
+                      href={`#menu-${category.id}`}
+                      className={cn(styles.link, isActive && styles.active)}
+                      aria-current={isActive ? "true" : undefined}
+                      onClick={(event) => handleClick(event, category.id)}
+                    >
+                      <span className={styles.index} aria-hidden="true">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <span className={styles.linkText}>{category.label}</span>
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         </div>
       </nav>
     </>

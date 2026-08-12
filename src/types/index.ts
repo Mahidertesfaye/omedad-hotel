@@ -10,6 +10,8 @@ export type SectionVariant = "default" | "alt" | "dark";
 export interface NavLink {
   label: string;
   href: string;
+  /** Homepage section id used for scroll-spy when `href` is a dedicated route. */
+  sectionId?: string;
 }
 
 export interface SiteMetadata {
@@ -34,6 +36,8 @@ export type {
 } from "./hero";
 
 export type {
+  BookingPartner,
+  BookingPartnerId,
   BookingSearchValues,
   BookingSearchVariant,
 } from "./booking";

@@ -5,14 +5,14 @@ import { SITE_NAME } from "@/constants/site";
 export const metadata: Metadata = {
   title: "Rooms & Suites",
   description:
-    "Explore deluxe rooms and suites at Omedad Hotel in Addis Ababa. Demo listings for browsing — official room details coming soon.",
+    "King Standard, Twin Standard, Junior Deluxe, Suite Room, and King-Extra at Omedad Hotel — a 4-star hotel in Bole, Addis Ababa.",
   alternates: {
     canonical: "/rooms",
   },
   openGraph: {
     title: `Rooms & Suites | ${SITE_NAME}`,
     description:
-      "Choose accommodation crafted for comfort and refined rest at Omedad Hotel.",
+      "Five room types at Omedad Hotel — comfort for business and leisure travelers near Bole Airport.",
     url: "/rooms",
   },
 };

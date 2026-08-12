@@ -5,8 +5,10 @@ import {
   Breadcrumb,
   type BreadcrumbItem,
 } from "@/components/common/Breadcrumb";
+import { HotelStarRating } from "@/components/ui/HotelStarRating";
 import { PageContainer } from "@/components/ui/PageContainer";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
+import { HOTEL_STAR_RATING } from "@/constants/site";
 import { usePrefersReducedMotion } from "@/hooks/useMediaQuery";
 import { cn } from "@/utils";
 import styles from "./PageHero.module.css";
@@ -18,6 +20,8 @@ export interface PageHeroProps {
   imageSrc: string;
   headingId: string;
   pattern?: "geometric" | "weave";
+  /** Show the hotel star classification above the title. */
+  showStarRating?: boolean;
   className?: string;
 }
 
@@ -28,6 +32,7 @@ export function PageHero({
   imageSrc,
   headingId,
   pattern = "geometric",
+  showStarRating = false,
   className,
 }: PageHeroProps) {
   const prefersReducedMotion = usePrefersReducedMotion();
@@ -66,6 +71,15 @@ export function PageHero({
           }}
         >
           <Breadcrumb items={breadcrumb} tone="light" />
+
+          {showStarRating ? (
+            <HotelStarRating
+              rating={HOTEL_STAR_RATING}
+              label={`${HOTEL_STAR_RATING}-Star Hotel`}
+              variant="inverse"
+              className={styles.starRating}
+            />
+          ) : null}
 
           <h1 id={headingId} className={styles.title}>
             {title}

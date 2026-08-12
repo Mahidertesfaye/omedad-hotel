@@ -1,21 +1,7 @@
-import dynamic from "next/dynamic";
 import { Section } from "@/components/common/Section";
-import { PageContainer, SectionHeader, Skeleton } from "@/components/ui";
+import { PageContainer, SectionHeader } from "@/components/ui";
 import { TESTIMONIALS_CONTENT } from "@/constants/testimonials";
-import styles from "./Testimonials.module.css";
-
-const TestimonialsCarousel = dynamic(
-  () =>
-    import("./TestimonialsCarousel").then((mod) => mod.TestimonialsCarousel),
-  {
-    loading: () => (
-      <Skeleton
-        className={styles.carouselSkeleton}
-        label="Loading testimonials carousel"
-      />
-    ),
-  },
-);
+import { TestimonialsCarousel } from "./TestimonialsCarousel";
 
 export function Testimonials() {
   return (

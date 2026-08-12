@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import type { MouseEvent } from "react";
 import { usePrefersReducedMotion } from "@/hooks/useMediaQuery";
 import { cn } from "@/utils";
 import styles from "./NavLink.module.css";
@@ -23,6 +25,7 @@ export function NavLink({
   onNavigate,
   variant = "desktop",
 }: NavLinkProps) {
+  const pathname = usePathname();
   const prefersReducedMotion = usePrefersReducedMotion();
   const isMobile = variant === "mobile";
 
@@ -32,6 +35,17 @@ export function NavLink({
     isActive && styles.active,
     isScrolled && !isMobile && styles.scrolled,
   );
+
+  const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (href === "/" && pathname === "/") {
+      event.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: prefersReducedMotion ? "auto" : "smooth",
+      });
+    }
+    onNavigate?.();
+  };
 
   const linkContent = (
     <>
@@ -56,7 +70,7 @@ export function NavLink({
       <Link
         href={href}
         className={linkClassName}
-        onClick={onNavigate}
+        onClick={handleClick}
         aria-current={isActive ? "page" : undefined}
       >
         {linkContent}

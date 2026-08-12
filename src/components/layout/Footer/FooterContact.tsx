@@ -3,6 +3,8 @@ import { FOOTER_CONTACT, FOOTER_CONTENT } from "@/constants/footer";
 import styles from "./FooterContact.module.css";
 
 export function FooterContact() {
+  const phones = FOOTER_CONTACT.phones;
+
   return (
     <div className={styles.contact}>
       <h2 className={styles.heading}>{FOOTER_CONTENT.contactHeading}</h2>
@@ -10,17 +12,26 @@ export function FooterContact() {
       <ul className={styles.list}>
         <li className={styles.item}>
           <MapPin className={styles.icon} strokeWidth={1.25} aria-hidden="true" />
-          <address className={styles.value}>{FOOTER_CONTACT.address}</address>
+          <address className={styles.value}>
+            {FOOTER_CONTACT.address}
+            {FOOTER_CONTACT.addressDetail ? (
+              <>
+                <br />
+                {FOOTER_CONTACT.addressDetail}
+              </>
+            ) : null}
+          </address>
         </li>
 
         <li className={styles.item}>
           <Phone className={styles.icon} strokeWidth={1.25} aria-hidden="true" />
-          <a
-            href={`tel:${FOOTER_CONTACT.phone.replace(/\s/g, "")}`}
-            className={styles.link}
-          >
-            {FOOTER_CONTACT.phone}
-          </a>
+          <div className={styles.phoneStack}>
+            {phones.map((phone) => (
+              <a key={phone.href} href={phone.href} className={styles.link}>
+                {phone.display}
+              </a>
+            ))}
+          </div>
         </li>
 
         <li className={styles.item}>

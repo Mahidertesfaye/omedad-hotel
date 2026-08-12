@@ -64,6 +64,10 @@
   max-width: var(--measure-md);
 }
 
+.starRating {
+  margin-top: calc(var(--space-2) * -1);
+}
+
 .title {
   margin: 0;
   font-family: var(--font-heading);

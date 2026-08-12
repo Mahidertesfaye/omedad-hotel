@@ -7,7 +7,7 @@ export function FooterLogo() {
   return (
     <Link href="/" className={styles.logo} aria-label={`${SITE_NAME} — Home`}>
       <Image
-        src="/logo.png"
+        src="/omedad-logo.png"
         alt={SITE_NAME}
         width={140}
         height={140}

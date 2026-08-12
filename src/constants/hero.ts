@@ -1,8 +1,10 @@
 export const HERO_CONTENT = {
-  overline: "Addis Ababa, Ethiopia",
-  headline: "Where Ethiopian Warmth Meets Refined Hospitality",
+  overline: "Bole, Addis Ababa",
+  starRating: 4,
+  starLabel: "4-Star Hotel",
+  headline: "A Modern City Hotel Near Bole Airport",
   subtitle:
-    "A sanctuary of timeless design, gracious service, and modern comfort — crafted for the discerning traveler in Africa's diplomatic capital.",
+    "With over 30 years of trusted experience — comfort, service, and warmth for business and leisure travelers, just 6 minutes from the airport.",
   cta: {
     label: "Explore Our Rooms",
     href: "#rooms",
@@ -16,7 +18,7 @@ export const HERO_CONTENT = {
 export const HERO_MEDIA = {
   type: "image" as const,
   src: "/images/hero/placeholder.svg",
-  alt: "Omedad Hotel — luxury hospitality atmosphere in Addis Ababa",
+  alt: "Omedad Hotel — modern hospitality on Airport Road, Addis Ababa",
   /** Uncomment for video background:
   type: "video" as const,
   src: "/videos/hero.mp4",

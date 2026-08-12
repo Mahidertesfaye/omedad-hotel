@@ -2,50 +2,54 @@ import type { FeaturedRoom } from "@/types/rooms";
 
 export const FEATURED_ROOMS_CONTENT = {
   overline: "Featured Rooms",
-  heading: "Spaces crafted for comfort, elegance, and rest",
+  heading: "Spaces crafted for comfort and rest",
+  exploreMore: {
+    label: "Explore More",
+    href: "/rooms",
+  },
 } as const;
 
 /**
- * Swap image src values to replace placeholders with production photography.
+ * Homepage showcase — first three rooms from the official listing.
+ * Full catalog (Suite Room, King-Extra, etc.) lives on `/rooms`.
  */
 export const FEATURED_ROOMS: FeaturedRoom[] = [
   {
-    id: "deluxe-king",
-    title: "Deluxe King Room",
+    id: "king-standard",
+    title: "King Standard",
     description:
-      "A serene retreat with floor-to-ceiling windows, bespoke furnishings, and refined touches throughout.",
-    amenities: ["King Bed", "City View", "Marble Bath", "Smart TV"],
-    price: { amount: 280, currency: "USD", period: "night" },
+      "Experience luxury and comfort in our beautifully appointed rooms.",
+    amenities: ["2 Adults", "Buffet Breakfast", "Shuttle Service"],
+    price: { amount: 55, currency: "USD", period: "night" },
     image: {
       src: "/images/rooms/placeholder.svg",
-      alt: "Deluxe King Room — spacious bedroom with city views",
+      alt: "King Standard room at Omedad Hotel",
     },
-    href: "/rooms",
+    href: "/rooms#king-standard",
   },
   {
-    id: "executive-suite",
-    title: "Executive Suite",
+    id: "twin-standard",
+    title: "Twin Standard",
     description:
-      "Generous living space with a separate lounge, premium amenities, and panoramic views of Addis Ababa.",
-    amenities: ["Separate Lounge", "Panoramic View", "Rain Shower", "Minibar"],
-    price: { amount: 420, currency: "USD", period: "night" },
+      "Perfect for friends or colleagues, this room offers two cozy twin beds with all the essentials for comfort.",
+    amenities: ["2 Adults", "Buffet Breakfast", "Shuttle Service"],
+    price: { amount: 75, currency: "USD", period: "night" },
     image: {
       src: "/images/rooms/placeholder.svg",
-      alt: "Executive Suite — elegant living area with panoramic windows",
+      alt: "Twin Standard room at Omedad Hotel",
     },
-    href: "/rooms",
+    href: "/rooms#twin-standard",
   },
   {
-    id: "presidential-suite",
-    title: "Presidential Suite",
-    description:
-      "Our most distinguished accommodation — expansive layout, private dining, and dedicated concierge service.",
-    amenities: ["Private Dining", "Butler Service", "Jacuzzi", "Terrace"],
-    price: { amount: 780, currency: "USD", period: "night" },
+    id: "junior-deluxe",
+    title: "Junior Deluxe",
+    description: "The ultimate in comfort and convenience.",
+    amenities: ["2 Adults", "Buffet Breakfast", "Shuttle Service"],
+    price: { amount: 60, currency: "USD", period: "night" },
     image: {
       src: "/images/rooms/placeholder.svg",
-      alt: "Presidential Suite — luxurious suite with private terrace",
+      alt: "Junior Deluxe room at Omedad Hotel",
     },
-    href: "/rooms",
+    href: "/rooms#junior-deluxe",
   },
 ];

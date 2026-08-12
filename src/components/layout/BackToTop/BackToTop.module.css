@@ -1,0 +1,67 @@
+.button {
+  position: fixed;
+  z-index: var(--z-mobile-nav);
+  right: var(--space-4);
+  bottom: calc(var(--mobile-nav-offset) + var(--space-3));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 1px solid rgb(255 255 255 / 0.28);
+  border-radius: var(--radius-full);
+  background: rgb(var(--color-navy-900-rgb) / 0.42);
+  backdrop-filter: blur(var(--glass-blur-sm));
+  -webkit-backdrop-filter: blur(var(--glass-blur-sm));
+  color: var(--color-white);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(0.5rem);
+  transition:
+    opacity var(--transition-base),
+    transform var(--transition-base),
+    background-color var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.button svg {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.button:hover,
+.button:focus-visible {
+  background: rgb(var(--color-navy-900-rgb) / 0.58);
+  border-color: rgb(255 255 255 / 0.4);
+}
+
+.button:focus-visible {
+  outline: var(--focus-ring-width) solid var(--color-focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+@media (min-width: 769px) {
+  .button {
+    right: var(--space-6);
+    bottom: var(--space-6);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition: opacity var(--transition-fast);
+    transform: none;
+  }
+
+  .visible {
+    transform: none;
+  }
+}

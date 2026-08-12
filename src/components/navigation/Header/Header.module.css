@@ -31,6 +31,13 @@
   padding-inline: var(--container-padding);
 }
 
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
 .actions {
   display: flex;
   align-items: center;

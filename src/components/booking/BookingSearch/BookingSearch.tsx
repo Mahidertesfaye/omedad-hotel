@@ -62,89 +62,83 @@ export function BookingSearch({
         onSubmit={handleSubmit}
         aria-label="Booking search"
       >
-        <BookingSearchField
-          id={`${idPrefix}-check-in`}
-          label={BOOKING_LABELS.checkIn}
-        >
-          <input
+        <div className={styles.fields}>
+          <BookingSearchField
             id={`${idPrefix}-check-in`}
-            type="date"
-            className={inputClassName}
-            value={values.checkIn}
-            onChange={(event) => setCheckIn(event.target.value)}
-            required
-          />
-        </BookingSearchField>
+            label={BOOKING_LABELS.checkIn}
+          >
+            <input
+              id={`${idPrefix}-check-in`}
+              type="date"
+              className={inputClassName}
+              value={values.checkIn}
+              onChange={(event) => setCheckIn(event.target.value)}
+              required
+            />
+          </BookingSearchField>
 
-        <div className={styles.divider} aria-hidden="true" />
-
-        <BookingSearchField
-          id={`${idPrefix}-check-out`}
-          label={BOOKING_LABELS.checkOut}
-        >
-          <input
+          <BookingSearchField
             id={`${idPrefix}-check-out`}
-            type="date"
-            className={inputClassName}
-            value={values.checkOut}
-            onChange={(event) => setCheckOut(event.target.value)}
-            required
-          />
-        </BookingSearchField>
+            label={BOOKING_LABELS.checkOut}
+          >
+            <input
+              id={`${idPrefix}-check-out`}
+              type="date"
+              className={inputClassName}
+              value={values.checkOut}
+              onChange={(event) => setCheckOut(event.target.value)}
+              required
+            />
+          </BookingSearchField>
 
-        <div className={styles.divider} aria-hidden="true" />
-
-        <BookingSearchField
-          id={`${idPrefix}-adults`}
-          label={BOOKING_LABELS.adults}
-        >
-          <Select
+          <BookingSearchField
             id={`${idPrefix}-adults`}
-            variant="ghost"
-            value={String(values.adults)}
-            options={buildOptions(
-              BOOKING_LIMITS.adults.min,
-              BOOKING_LIMITS.adults.max,
-            )}
-            onChange={(value) => setAdults(Number(value))}
-          />
-        </BookingSearchField>
+            label={BOOKING_LABELS.adults}
+          >
+            <Select
+              id={`${idPrefix}-adults`}
+              variant="ghost"
+              value={String(values.adults)}
+              options={buildOptions(
+                BOOKING_LIMITS.adults.min,
+                BOOKING_LIMITS.adults.max,
+              )}
+              onChange={(value) => setAdults(Number(value))}
+            />
+          </BookingSearchField>
 
-        <div className={styles.divider} aria-hidden="true" />
-
-        <BookingSearchField
-          id={`${idPrefix}-children`}
-          label={BOOKING_LABELS.children}
-        >
-          <Select
+          <BookingSearchField
             id={`${idPrefix}-children`}
-            variant="ghost"
-            value={String(values.children)}
-            options={buildOptions(
-              BOOKING_LIMITS.children.min,
-              BOOKING_LIMITS.children.max,
-            )}
-            onChange={(value) => setChildren(Number(value))}
-          />
-        </BookingSearchField>
+            label={BOOKING_LABELS.children}
+          >
+            <Select
+              id={`${idPrefix}-children`}
+              variant="ghost"
+              value={String(values.children)}
+              options={buildOptions(
+                BOOKING_LIMITS.children.min,
+                BOOKING_LIMITS.children.max,
+              )}
+              onChange={(value) => setChildren(Number(value))}
+            />
+          </BookingSearchField>
 
-        <div className={styles.divider} aria-hidden="true" />
-
-        <BookingSearchField
-          id={`${idPrefix}-rooms`}
-          label={BOOKING_LABELS.rooms}
-        >
-          <Select
+          <BookingSearchField
             id={`${idPrefix}-rooms`}
-            variant="ghost"
-            value={String(values.rooms)}
-            options={buildOptions(
-              BOOKING_LIMITS.rooms.min,
-              BOOKING_LIMITS.rooms.max,
-            )}
-            onChange={(value) => setRooms(Number(value))}
-          />
-        </BookingSearchField>
+            label={BOOKING_LABELS.rooms}
+          >
+            <Select
+              id={`${idPrefix}-rooms`}
+              variant="ghost"
+              value={String(values.rooms)}
+              options={buildOptions(
+                BOOKING_LIMITS.rooms.min,
+                BOOKING_LIMITS.rooms.max,
+              )}
+              onChange={(value) => setRooms(Number(value))}
+            />
+          </BookingSearchField>
+        </div>
 
         <PrimaryButton type="submit" size="lg" className={styles.submit}>
           {BOOKING_LABELS.submit}

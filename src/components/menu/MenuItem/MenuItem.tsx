@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
 import { usePrefersReducedMotion } from "@/hooks/useMediaQuery";
 import type { DietaryTag, MenuItem as MenuItemType } from "@/types/menu";
-import { cn } from "@/utils";
 import styles from "./MenuItem.module.css";
 
 interface MenuItemProps {
@@ -33,13 +32,13 @@ export function MenuItem({ item, index }: MenuItemProps) {
 
   return (
     <motion.article
-      className={cn(styles.item, item.featured && styles.featured)}
-      initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
+      className={styles.item}
+      initial={prefersReducedMotion ? false : { opacity: 0, y: 22 }}
       whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-32px", amount: 0.25 }}
+      viewport={{ once: true, margin: "-32px", amount: 0.2 }}
       transition={{
-        duration: 0.5,
-        delay: prefersReducedMotion ? 0 : Math.min(index * 0.05, 0.2),
+        duration: 0.55,
+        delay: prefersReducedMotion ? 0 : Math.min(index * 0.06, 0.24),
         ease: [0.22, 1, 0.36, 1],
       }}
     >
@@ -48,18 +47,19 @@ export function MenuItem({ item, index }: MenuItemProps) {
           src={item.image.src}
           alt={item.image.alt}
           fill
-          sizes="96px"
+          sizes="(max-width: 640px) 100vw, (max-width: 960px) 50vw, 320px"
           className={styles.image}
         />
+        {item.featured && (
+          <span className={styles.featuredBadge}>Chef&apos;s pick</span>
+        )}
+        <p className={styles.priceBadge}>
+          {formatPrice(item.price, item.currency)}
+        </p>
       </figure>
 
       <div className={styles.content}>
-        <div className={styles.headingRow}>
-          <h3 className={styles.name}>{item.name}</h3>
-          <span className={styles.dots} aria-hidden="true" />
-          <p className={styles.price}>{formatPrice(item.price, item.currency)}</p>
-        </div>
-
+        <h3 className={styles.name}>{item.name}</h3>
         <p className={styles.description}>{item.description}</p>
 
         {item.dietary && item.dietary.length > 0 && (

@@ -71,13 +71,13 @@
   letter-spacing: var(--tracking-wide);
   text-align: center;
   white-space: nowrap;
-  color: var(--color-text-muted);
+  color: var(--color-inverse-medium);
 }
 
 .mobile:hover,
 .mobile:focus-visible,
 .mobile.active {
-  color: var(--color-primary-navy);
+  color: var(--color-white);
 }
 
 .mobileIndicator {
@@ -86,7 +86,7 @@
   bottom: var(--space-1-5);
   width: var(--space-4);
   height: 1px;
-  background-color: var(--color-primary-navy);
+  background-color: var(--color-white);
   transform: translateX(-50%);
 }
 

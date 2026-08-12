@@ -12,6 +12,7 @@ export function RoomsHero() {
       imageSrc="/images/rooms/placeholder.svg"
       headingId="rooms-hero-heading"
       pattern="geometric"
+      showStarRating
     />
   );
 }

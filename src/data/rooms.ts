@@ -1,9 +1,9 @@
 import type { Room, RoomFiltersState } from "@/types/rooms";
 
 /**
- * Demo room catalog for the dedicated Rooms page.
- * Placeholder content only — replace with real Omedad Hotel inventory later.
- * Keep this module as the single data source so a future API can swap in cleanly.
+ * Official room catalog from the omedadhotel.com /rooms listing.
+ * Names, descriptions, amenities, and nightly rates copied from that page
+ * (listing only — room detail routes 404 on the live site).
  */
 
 const ROOM_IMAGE = {
@@ -11,141 +11,121 @@ const ROOM_IMAGE = {
   alt: "Room placeholder — photography to be added",
 } as const;
 
+const SHARED_AMENITIES = [
+  "2 Adults",
+  "Buffet Breakfast",
+  "Shuttle Service",
+] as const;
+
 export const ROOMS_PAGE_CONTENT = {
-  title: "Rooms & Suites",
+  title: "Our Rooms",
   description:
-    "Choose a space shaped for rest and refined comfort — from serene deluxe rooms to expansive suites overlooking Addis Ababa.",
+    "Our hotel features 72 thoughtfully designed rooms to suit every type of traveler—whether you’re here for business, leisure, or a bit of both. Each room is a relaxing retreat, blending modern amenities with warm, welcoming interiors to ensure your stay is as comfortable as it is memorable.",
   breadcrumb: [
     { label: "Home", href: "/" },
-    { label: "Rooms & Suites", href: "/rooms" },
+    { label: "Rooms", href: "/rooms" },
   ],
-  demoNotice:
-    "Demo content for layout and browsing. Room details and photography will be updated with official Omedad Hotel information.",
+  notice:
+    "Rates shown are per night as listed on our rooms page and may vary by date. Contact us to confirm current availability.",
   filtersLabel: "Filter rooms",
   emptyMessage: "No rooms match your current filters. Try adjusting your selection.",
   bookHref: "/#booking",
+  availabilityLabel: "Check availability",
 } as const;
 
 export const ROOMS: Room[] = [
   {
-    id: "deluxe-king",
-    name: "Deluxe King Room",
-    slug: "deluxe-king",
+    id: "king-standard",
+    name: "King Standard",
+    slug: "king-standard",
     description:
-      "A calm retreat with floor-to-ceiling windows, bespoke furnishings, and thoughtful details for restful nights in the city.",
+      "Experience luxury and comfort in our beautifully appointed rooms.",
     image: {
       ...ROOM_IMAGE,
-      alt: "Deluxe King Room — spacious bedroom with city views",
-    },
-    gallery: [{ ...ROOM_IMAGE }, { ...ROOM_IMAGE }],
-    price: 280,
-    currency: "USD",
-    size: "32 m²",
-    bedType: "King",
-    guests: 2,
-    amenities: ["King Bed", "City View", "Marble Bath", "Smart TV", "Work Desk"],
-    featured: true,
-    roomType: "deluxe",
-  },
-  {
-    id: "deluxe-twin",
-    name: "Deluxe Twin Room",
-    slug: "deluxe-twin",
-    description:
-      "Thoughtfully appointed twin beds and a bright layout suited for colleagues or companions traveling together.",
-    image: {
-      ...ROOM_IMAGE,
-      alt: "Deluxe Twin Room — twin beds in a refined layout",
+      alt: "King Standard room at Omedad Hotel",
     },
     gallery: [{ ...ROOM_IMAGE }],
-    price: 265,
+    price: 55,
     currency: "USD",
-    size: "30 m²",
+    bedType: "King",
+    guests: 2,
+    amenities: [...SHARED_AMENITIES],
+    featured: true,
+    roomType: "king",
+  },
+  {
+    id: "twin-standard",
+    name: "Twin Standard",
+    slug: "twin-standard",
+    description:
+      "Perfect for friends or colleagues, this room offers two cozy twin beds with all the essentials for comfort.",
+    image: {
+      ...ROOM_IMAGE,
+      alt: "Twin Standard room at Omedad Hotel",
+    },
+    gallery: [{ ...ROOM_IMAGE }],
+    price: 75,
+    currency: "USD",
     bedType: "Twin",
     guests: 2,
-    amenities: ["Twin Beds", "City View", "Rain Shower", "Smart TV"],
-    featured: false,
-    roomType: "deluxe",
-  },
-  {
-    id: "executive-suite",
-    name: "Executive Suite",
-    slug: "executive-suite",
-    description:
-      "A generous suite with a separate lounge, premium amenities, and panoramic views across Addis Ababa.",
-    image: {
-      ...ROOM_IMAGE,
-      alt: "Executive Suite — elegant living area with panoramic windows",
-    },
-    gallery: [{ ...ROOM_IMAGE }, { ...ROOM_IMAGE }],
-    price: 420,
-    currency: "USD",
-    size: "58 m²",
-    bedType: "King",
-    guests: 3,
-    amenities: ["Separate Lounge", "Panoramic View", "Rain Shower", "Minibar", "Nespresso"],
+    amenities: [...SHARED_AMENITIES],
     featured: true,
-    roomType: "suite",
+    roomType: "twin",
   },
   {
-    id: "family-suite",
-    name: "Family Suite",
-    slug: "family-suite",
-    description:
-      "Spacious accommodation with a king bed and sofa bed — designed for families who value comfort and privacy.",
+    id: "junior-deluxe",
+    name: "Junior Deluxe",
+    slug: "junior-deluxe",
+    description: "The ultimate in comfort and convenience.",
     image: {
       ...ROOM_IMAGE,
-      alt: "Family Suite — spacious suite for families",
+      alt: "Junior Deluxe room at Omedad Hotel",
     },
     gallery: [{ ...ROOM_IMAGE }],
-    price: 480,
+    price: 60,
     currency: "USD",
-    size: "64 m²",
-    bedType: "King + Sofa Bed",
-    guests: 4,
-    amenities: ["King Bed", "Sofa Bed", "Living Area", "Bathtub", "Smart TV"],
-    featured: false,
-    roomType: "suite",
-  },
-  {
-    id: "presidential-suite",
-    name: "Presidential Suite",
-    slug: "presidential-suite",
-    description:
-      "Our most distinguished accommodation — an expansive layout, private dining, and dedicated concierge service.",
-    image: {
-      ...ROOM_IMAGE,
-      alt: "Presidential Suite — luxurious suite with private terrace",
-    },
-    gallery: [{ ...ROOM_IMAGE }, { ...ROOM_IMAGE }, { ...ROOM_IMAGE }],
-    price: 780,
-    currency: "USD",
-    size: "120 m²",
     bedType: "King",
-    guests: 4,
-    amenities: ["Private Dining", "Butler Service", "Jacuzzi", "Terrace", "Dressing Room"],
-    featured: true,
-    roomType: "presidential",
-  },
-  {
-    id: "standard-queen",
-    name: "Classic Queen Room",
-    slug: "classic-queen",
-    description:
-      "An elegant essentials room with a queen bed, soft lighting, and everything needed for a restorative stay.",
-    image: {
-      ...ROOM_IMAGE,
-      alt: "Classic Queen Room — comfortable queen bedroom",
-    },
-    gallery: [{ ...ROOM_IMAGE }],
-    price: 195,
-    currency: "USD",
-    size: "24 m²",
-    bedType: "Queen",
     guests: 2,
-    amenities: ["Queen Bed", "Walk-in Shower", "Smart TV", "Work Desk"],
-    featured: false,
-    roomType: "standard",
+    amenities: [...SHARED_AMENITIES],
+    featured: true,
+    roomType: "junior",
+  },
+  {
+    id: "suite-room",
+    name: "Suite Room",
+    slug: "suite-room",
+    description: "Perfect for families seeking comfort and space.",
+    image: {
+      ...ROOM_IMAGE,
+      alt: "Suite Room at Omedad Hotel",
+    },
+    gallery: [{ ...ROOM_IMAGE }],
+    price: 100,
+    currency: "USD",
+    bedType: "King",
+    guests: 2,
+    amenities: [...SHARED_AMENITIES],
+    featured: true,
+    roomType: "suite",
+  },
+  {
+    id: "king-extra",
+    name: "King-Extra",
+    slug: "king-extra",
+    description:
+      "An upgraded king room with added space and amenities, offering enhanced comfort for longer or more indulgent stays.",
+    image: {
+      ...ROOM_IMAGE,
+      alt: "King-Extra room at Omedad Hotel",
+    },
+    gallery: [{ ...ROOM_IMAGE }],
+    price: 80,
+    currency: "USD",
+    bedType: "King",
+    guests: 2,
+    amenities: [...SHARED_AMENITIES],
+    featured: true,
+    roomType: "extra",
   },
 ];
 
@@ -153,38 +133,27 @@ export const DEFAULT_ROOM_FILTERS: RoomFiltersState = {
   roomType: "all",
   guests: "all",
   bedType: "all",
-  priceRange: "all",
 };
 
 export const ROOM_TYPE_OPTIONS = [
-  { value: "all", label: "All types" },
-  { value: "standard", label: "Classic" },
-  { value: "deluxe", label: "Deluxe" },
+  { value: "all", label: "All Rooms" },
+  { value: "king", label: "King" },
+  { value: "twin", label: "Twin" },
+  { value: "junior", label: "Junior" },
   { value: "suite", label: "Suite" },
-  { value: "presidential", label: "Presidential" },
+  { value: "extra", label: "King-Extra" },
 ] as const;
 
 export const GUEST_OPTIONS = [
   { value: "all", label: "Any guests" },
   { value: 1, label: "1+" },
   { value: 2, label: "2+" },
-  { value: 3, label: "3+" },
-  { value: 4, label: "4+" },
 ] as const;
 
 export const BED_TYPE_OPTIONS = [
   { value: "all", label: "Any bed" },
   { value: "King", label: "King" },
-  { value: "Queen", label: "Queen" },
   { value: "Twin", label: "Twin" },
-  { value: "King + Sofa Bed", label: "King + Sofa" },
-] as const;
-
-export const PRICE_RANGE_OPTIONS = [
-  { value: "all", label: "Any price" },
-  { value: "under-300", label: "Under $300" },
-  { value: "300-500", label: "$300 – $500" },
-  { value: "over-500", label: "Over $500" },
 ] as const;
 
 /** Filter rooms client-side. Swap this for an API query later without changing the UI. */
@@ -202,21 +171,6 @@ export function filterRooms(
     }
 
     if (filters.bedType !== "all" && room.bedType !== filters.bedType) {
-      return false;
-    }
-
-    if (filters.priceRange === "under-300" && room.price >= 300) {
-      return false;
-    }
-
-    if (
-      filters.priceRange === "300-500" &&
-      (room.price < 300 || room.price > 500)
-    ) {
-      return false;
-    }
-
-    if (filters.priceRange === "over-500" && room.price <= 500) {
       return false;
     }
 

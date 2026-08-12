@@ -2,6 +2,13 @@
   position: relative;
   width: 100%;
   isolation: isolate;
+  scroll-margin-top: var(--header-height);
+}
+
+@media (max-width: 768px) {
+  .section {
+    scroll-margin-bottom: var(--mobile-nav-offset);
+  }
 }
 
 .section::before {

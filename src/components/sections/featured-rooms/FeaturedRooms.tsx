@@ -1,6 +1,11 @@
 import dynamic from "next/dynamic";
 import { Section } from "@/components/common/Section";
-import { PageContainer, SectionHeader, Skeleton } from "@/components/ui";
+import {
+  OutlineButton,
+  PageContainer,
+  SectionHeader,
+  Skeleton,
+} from "@/components/ui";
 import { FEATURED_ROOMS, FEATURED_ROOMS_CONTENT } from "@/constants/rooms";
 import { FeaturedRoomCard } from "./FeaturedRoomCard";
 import styles from "./FeaturedRooms.module.css";
@@ -36,6 +41,12 @@ export function FeaturedRooms() {
         </div>
 
         <FeaturedRoomsSlider rooms={FEATURED_ROOMS} />
+
+        <div className={styles.cta}>
+          <OutlineButton href={FEATURED_ROOMS_CONTENT.exploreMore.href} size="lg">
+            {FEATURED_ROOMS_CONTENT.exploreMore.label}
+          </OutlineButton>
+        </div>
       </PageContainer>
     </Section>
   );

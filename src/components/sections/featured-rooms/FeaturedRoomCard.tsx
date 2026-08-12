@@ -7,17 +7,17 @@ interface FeaturedRoomCardProps {
   room: FeaturedRoom;
 }
 
-function formatPrice(price: FeaturedRoom["price"]) {
-  const formatted = new Intl.NumberFormat("en-US", {
+function formatPrice(price: NonNullable<FeaturedRoom["price"]>) {
+  return new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: price.currency,
     maximumFractionDigits: 0,
   }).format(price.amount);
-
-  return `${formatted} / ${price.period}`;
 }
 
 export function FeaturedRoomCard({ room }: FeaturedRoomCardProps) {
+  const hasPrice = Boolean(room.price);
+
   return (
     <Card variant="elevated" padding="none" className={styles.card}>
       <figure className={styles.media}>
@@ -28,6 +28,17 @@ export function FeaturedRoomCard({ room }: FeaturedRoomCardProps) {
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
           className={styles.image}
         />
+        {hasPrice && room.price ? (
+          <p className={styles.priceOverlay}>
+            <span className={styles.priceOverlayLabel}>From</span>
+            <span className={styles.priceOverlayValue}>
+              {formatPrice(room.price)}
+            </span>
+            <span className={styles.priceOverlayPeriod}>
+              / {room.price.period}
+            </span>
+          </p>
+        ) : null}
       </figure>
 
       <div className={styles.body}>
@@ -44,11 +55,6 @@ export function FeaturedRoomCard({ room }: FeaturedRoomCardProps) {
         </ul>
 
         <div className={styles.footer}>
-          <p className={styles.price}>
-            <span className={styles.priceLabel}>From</span>
-            <span className={styles.priceValue}>{formatPrice(room.price)}</span>
-          </p>
-
           <OutlineButton href={room.href} size="sm">
             Explore More
           </OutlineButton>

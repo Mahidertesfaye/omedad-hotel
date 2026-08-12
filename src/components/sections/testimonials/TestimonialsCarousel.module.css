@@ -5,21 +5,27 @@
 }
 
 .swiper {
-  padding-bottom: var(--space-12);
+  overflow: hidden;
 }
 
 .slide {
   height: auto;
+  box-sizing: border-box;
 }
 
-.navigation {
-  display: none;
-}
-
-.navButton {
+.controls {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+.navButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
   width: 2.75rem;
   height: 2.75rem;
   border: 1px solid var(--color-border);
@@ -30,7 +36,8 @@
   transition:
     background-color var(--transition-fast),
     border-color var(--transition-fast),
-    color var(--transition-fast);
+    color var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
 
 .navButton svg {
@@ -38,67 +45,67 @@
   height: 1.25rem;
 }
 
-.carousel :global(.swiper-pagination) {
-  bottom: 0;
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  min-height: 2.75rem;
+  min-width: 5rem;
 }
 
-.carousel :global(.swiper-pagination-bullet) {
+.bullet {
+  display: inline-block;
   width: 8px;
   height: 8px;
+  margin-inline: 4px;
+  border: none;
   border-radius: var(--radius-sm);
   background-color: var(--color-gray-300);
   opacity: 1;
-  transition: background-color var(--transition-base);
+  cursor: pointer;
+  transition:
+    background-color var(--transition-base),
+    width var(--transition-base);
 }
 
-.carousel :global(.swiper-pagination-bullet-active) {
+.bulletActive {
+  width: 1.5rem;
   background-color: var(--color-primary);
-}
-
-@media (min-width: 1024px) {
-  .carousel {
-    max-width: 52rem;
-    padding-inline: var(--space-12);
-  }
-
-  .navigation {
-    display: block;
-  }
-
-  .navButton {
-    position: absolute;
-    top: 50%;
-    z-index: 2;
-    transform: translateY(-50%);
-  }
-
-  .navPrev {
-    left: 0;
-  }
-
-  .navNext {
-    right: 0;
-  }
-
-  .carousel :global(.swiper-pagination) {
-    display: none;
-  }
 }
 
 @media (hover: hover) and (pointer: fine) {
   .navButton:hover {
     border-color: var(--color-primary-navy);
     background-color: var(--color-gray-50);
+    box-shadow: var(--shadow-md);
+  }
+
+  .bullet:hover {
+    background-color: var(--color-gray-400);
   }
 }
 
-.navButton:focus-visible {
-  outline: 2px solid var(--color-focus-ring);
-  outline-offset: 2px;
+.navButton:focus-visible,
+.bullet:focus-visible {
+  outline: var(--focus-ring-width) solid var(--color-focus-ring);
+  outline-offset: var(--focus-ring-offset);
 }
 
-@media (max-width: 768px) {
-  .swiper {
-    padding-bottom: var(--space-10);
+@media (min-width: 1024px) {
+  .carousel {
+    max-width: 52rem;
+  }
+
+  .controls {
+    margin-top: var(--space-8);
+    gap: var(--space-5);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bullet,
+  .navButton {
+    transition: none;
   }
 }

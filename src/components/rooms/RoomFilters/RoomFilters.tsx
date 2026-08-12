@@ -3,7 +3,6 @@
 import {
   BED_TYPE_OPTIONS,
   GUEST_OPTIONS,
-  PRICE_RANGE_OPTIONS,
   ROOM_TYPE_OPTIONS,
 } from "@/data/rooms";
 import { Select } from "@/components/ui/Select";
@@ -75,22 +74,6 @@ export function RoomFilters({
             onChange({
               ...filters,
               bedType: value as BedType | "all",
-            })
-          }
-        />
-
-        <Select
-          label="Price range"
-          variant="boxed"
-          value={filters.priceRange}
-          options={PRICE_RANGE_OPTIONS.map((option) => ({
-            value: option.value,
-            label: option.label,
-          }))}
-          onChange={(value) =>
-            onChange({
-              ...filters,
-              priceRange: value as RoomFiltersState["priceRange"],
             })
           }
         />

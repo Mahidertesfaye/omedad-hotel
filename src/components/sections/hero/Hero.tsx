@@ -53,7 +53,10 @@ export function Hero({ media = HERO_MEDIA }: HeroProps) {
         </div>
 
         <div className={styles.scroll}>
-          <HeroScrollIndicator scrollIndicatorRef={scrollIndicatorRef} />
+          <HeroScrollIndicator
+            scrollIndicatorRef={scrollIndicatorRef}
+            targetId="about"
+          />
         </div>
       </div>
     </section>

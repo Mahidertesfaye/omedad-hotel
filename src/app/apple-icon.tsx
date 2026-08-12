@@ -1,9 +1,12 @@
 import { ImageResponse } from "next/og";
+import { getOmedadLogoDataUrl } from "@/lib/brand-logo";
 
 export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
 
-export default function AppleIcon() {
+export default async function AppleIcon() {
+  const logoSrc = await getOmedadLogoDataUrl();
+
   return new ImageResponse(
     (
       <div
@@ -13,15 +16,16 @@ export default function AppleIcon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#0b1f3a",
-          color: "#ffffff",
-          fontSize: 96,
-          fontFamily: "Georgia, serif",
-          border: "2px solid rgb(255 255 255 / 0.35)",
-          borderRadius: 8,
+          background: "#000000",
         }}
       >
-        O
+        <img
+          src={logoSrc}
+          alt=""
+          width={160}
+          height={140}
+          style={{ objectFit: "contain" }}
+        />
       </div>
     ),
     { ...size },

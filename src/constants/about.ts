@@ -1,9 +1,10 @@
 export const ABOUT_CONTENT = {
   overline: "About Omedad Hotel",
-  heading: "A sanctuary of refined hospitality in the heart of Addis Ababa",
+  heading: "A modern city hotel built on a legacy of trust",
   description: [
-    "Omedad Hotel blends timeless elegance with the warmth of Ethiopian hospitality, offering an atmosphere where every detail has been considered for the discerning traveler.",
-    "From thoughtfully designed accommodations to attentive, personalized service — including our signature coffee ceremony welcome — we invite you to experience hospitality that feels both grand and genuinely warm.",
+    "With over 30 years of trusted experience in Ethiopia, Omedad is proud to expand its legacy with the opening of a modern city hotel. Built on a foundation of integrity and quality, we now bring the same commitment to excellence into hospitality — offering comfort, service, and warmth for both business and leisure travelers.",
+    "Located just 6 minutes from the airport and ideally situated for major business destinations across Addis Ababa, the hotel offers 24-hour reception and concierge services for efficient check-in and check-out.",
+    "Omedad Hotel continues to grow with a commitment to meeting the needs of its esteemed guests.",
   ],
   cta: {
     label: "Explore Amenities",
@@ -13,15 +14,15 @@ export const ABOUT_CONTENT = {
 
 export const ABOUT_STATS = [
   {
-    id: "experience",
-    label: "Years of Experience",
-    value: 25,
-    suffix: "+",
+    id: "stars",
+    label: "Star Hotel",
+    value: 4,
+    suffix: "",
     decimals: 0,
   },
   {
     id: "rating",
-    label: "Guest Rating",
+    label: "Tripadvisor Rating",
     value: 4.9,
     suffix: "/5",
     decimals: 1,
@@ -29,14 +30,14 @@ export const ABOUT_STATS = [
   {
     id: "rooms",
     label: "Rooms",
-    value: 120,
+    value: 72,
     suffix: "",
     decimals: 0,
   },
   {
     id: "airport",
     label: "Airport Distance",
-    value: 15,
+    value: 6,
     suffix: " min",
     decimals: 0,
   },
@@ -47,5 +48,5 @@ export const ABOUT_STATS = [
  */
 export const ABOUT_MEDIA = {
   src: "/images/about/placeholder.svg",
-  alt: "Omedad Hotel — elegant interior lounge in Addis Ababa",
+  alt: "Omedad Hotel — modern city hotel in Bole, Addis Ababa",
 } as const;

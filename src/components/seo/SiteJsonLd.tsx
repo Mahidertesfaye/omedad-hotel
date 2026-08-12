@@ -1,4 +1,10 @@
-import { CONTACT, SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/constants/site";
+import {
+  CONTACT,
+  HOTEL_STAR_RATING,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_URL,
+} from "@/constants/site";
 
 export function SiteJsonLd() {
   const schema = {
@@ -7,11 +13,21 @@ export function SiteJsonLd() {
     name: SITE_NAME,
     description: SITE_DESCRIPTION,
     url: SITE_URL,
-    telephone: CONTACT.phone,
+    logo: `${SITE_URL}/omedad-logo.png`,
+    image: `${SITE_URL}/omedad-logo.png`,
+    telephone: CONTACT.phones.map((phone) => phone.href.replace("tel:", "")),
     email: CONTACT.email,
+    starRating: {
+      "@type": "Rating",
+      ratingValue: HOTEL_STAR_RATING,
+      bestRating: 5,
+    },
     address: {
       "@type": "PostalAddress",
-      addressLocality: CONTACT.address,
+      streetAddress: "Airport Road, African Avenue",
+      addressLocality: "Addis Ababa",
+      addressRegion: "Kirkos Sub-city, W-01",
+      addressCountry: "ET",
     },
   };
 

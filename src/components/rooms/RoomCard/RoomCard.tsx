@@ -25,6 +25,8 @@ function formatPrice(amount: number, currency: string) {
 export function RoomCard({ room, index }: RoomCardProps) {
   const prefersReducedMotion = usePrefersReducedMotion();
   const previewAmenities = room.amenities.slice(0, 4);
+  const hasPrice =
+    typeof room.price === "number" && Boolean(room.currency);
 
   return (
     <motion.article
@@ -51,6 +53,15 @@ export function RoomCard({ room, index }: RoomCardProps) {
           {room.featured && (
             <span className={styles.featured}>Featured</span>
           )}
+          {hasPrice && room.price != null && room.currency ? (
+            <p className={styles.priceOverlay}>
+              <span className={styles.priceOverlayLabel}>From</span>
+              <span className={styles.priceOverlayValue}>
+                {formatPrice(room.price, room.currency)}
+              </span>
+              <span className={styles.priceOverlayPeriod}>/ night</span>
+            </p>
+          ) : null}
         </figure>
 
         <div className={styles.body}>
@@ -60,10 +71,12 @@ export function RoomCard({ room, index }: RoomCardProps) {
           </div>
 
           <dl className={styles.meta}>
-            <div className={styles.metaItem}>
-              <dt className={styles.metaLabel}>Size</dt>
-              <dd className={styles.metaValue}>{room.size}</dd>
-            </div>
+            {room.size ? (
+              <div className={styles.metaItem}>
+                <dt className={styles.metaLabel}>Size</dt>
+                <dd className={styles.metaValue}>{room.size}</dd>
+              </div>
+            ) : null}
             <div className={styles.metaItem}>
               <dt className={styles.metaLabel}>Bed</dt>
               <dd className={styles.metaValue}>{room.bedType}</dd>
@@ -85,20 +98,12 @@ export function RoomCard({ room, index }: RoomCardProps) {
           </ul>
 
           <div className={styles.footer}>
-            <p className={styles.price}>
-              <span className={styles.priceLabel}>From</span>
-              <span className={styles.priceValue}>
-                {formatPrice(room.price, room.currency)}
-                <span className={styles.pricePeriod}> / night</span>
-              </span>
-            </p>
-
             <div className={styles.actions}>
               <OutlineButton href={`#${room.slug}`} size="sm" className={styles.viewButton}>
                 View Room
               </OutlineButton>
               <PrimaryButton href={ROOMS_PAGE_CONTENT.bookHref} size="sm">
-                Book Now
+                {ROOMS_PAGE_CONTENT.availabilityLabel}
               </PrimaryButton>
             </div>
           </div>

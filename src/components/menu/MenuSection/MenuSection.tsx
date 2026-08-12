@@ -9,12 +9,15 @@ import styles from "./MenuSection.module.css";
 interface MenuSectionProps {
   category: MenuCategory;
   items: MenuItemType[];
+  index: number;
 }
 
-export function MenuSection({ category, items }: MenuSectionProps) {
+export function MenuSection({ category, items, index }: MenuSectionProps) {
   const prefersReducedMotion = usePrefersReducedMotion();
 
   if (items.length === 0) return null;
+
+  const countLabel = `${items.length} ${items.length === 1 ? "dish" : "dishes"}`;
 
   return (
     <motion.section
@@ -28,14 +31,21 @@ export function MenuSection({ category, items }: MenuSectionProps) {
       style={{ scrollMarginTop: "calc(var(--header-height) + 4.5rem)" }}
     >
       <header className={styles.header}>
+        <div className={styles.meta}>
+          <span className={styles.index} aria-hidden="true">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+          <span className={styles.count}>{countLabel}</span>
+        </div>
         <h2 id={`menu-heading-${category.id}`} className={styles.title}>
           {category.label}
         </h2>
+        <div className={styles.rule} aria-hidden="true" />
       </header>
 
       <div className={styles.list}>
-        {items.map((item, index) => (
-          <MenuItem key={item.id} item={item} index={index} />
+        {items.map((item, itemIndex) => (
+          <MenuItem key={item.id} item={item} index={itemIndex} />
         ))}
       </div>
     </motion.section>
