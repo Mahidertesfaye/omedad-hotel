@@ -70,15 +70,15 @@
 /* ── Grid ── */
 .grid {
   display: grid;
-  gap: var(--space-6);
+  gap: var(--grid-gap);
 }
 
 .grid-tight {
-  gap: var(--space-4);
+  gap: var(--grid-gap-sm);
 }
 
 .grid-loose {
-  gap: var(--space-8);
+  gap: var(--grid-gap-lg);
 }
 
 .grid-cols-1 {

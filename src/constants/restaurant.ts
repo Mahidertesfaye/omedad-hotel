@@ -8,8 +8,8 @@ export const RESTAURANT_CONTENT: RestaurantContent = {
     "From leisurely breakfasts to candlelit dinners, our chefs compose menus that celebrate Ethiopian heritage — from the coffee ceremony to regional flavors — while embracing contemporary elegance. A destination in itself for discerning guests and Addis Ababa locals alike.",
   ],
   cta: {
-    label: "Reserve a Table",
-    href: "#booking",
+    label: "View the Menu",
+    href: "/menu",
   },
 };
 

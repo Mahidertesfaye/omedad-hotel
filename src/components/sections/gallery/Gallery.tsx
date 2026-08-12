@@ -1,8 +1,6 @@
 import dynamic from "next/dynamic";
 import { Section } from "@/components/common/Section";
-import { PageContainer, Skeleton } from "@/components/ui";
-import { SectionSubtitle } from "@/components/ui/SectionSubtitle";
-import { SectionTitle } from "@/components/ui/SectionTitle";
+import { PageContainer, SectionHeader, Skeleton } from "@/components/ui";
 import { GALLERY_CONTENT } from "@/constants/gallery";
 import styles from "./Gallery.module.css";
 
@@ -24,17 +22,11 @@ export function Gallery() {
       ariaLabel="Photo gallery of Omedad Hotel"
     >
       <PageContainer>
-        <header className={styles.header}>
-          <SectionSubtitle align="center">
-            {GALLERY_CONTENT.overline}
-          </SectionSubtitle>
-
-          <SectionTitle as="h2" align="center" className={styles.heading}>
-            {GALLERY_CONTENT.heading}
-          </SectionTitle>
-
-          <p className={styles.lead}>{GALLERY_CONTENT.description}</p>
-        </header>
+        <SectionHeader
+          subtitle={GALLERY_CONTENT.overline}
+          title={GALLERY_CONTENT.heading}
+          lead={GALLERY_CONTENT.description}
+        />
 
         <GalleryGrid />
       </PageContainer>

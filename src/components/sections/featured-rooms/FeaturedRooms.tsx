@@ -1,8 +1,6 @@
 import dynamic from "next/dynamic";
 import { Section } from "@/components/common/Section";
-import { PageContainer, Skeleton } from "@/components/ui";
-import { SectionSubtitle } from "@/components/ui/SectionSubtitle";
-import { SectionTitle } from "@/components/ui/SectionTitle";
+import { PageContainer, SectionHeader, Skeleton } from "@/components/ui";
 import { FEATURED_ROOMS, FEATURED_ROOMS_CONTENT } from "@/constants/rooms";
 import { FeaturedRoomCard } from "./FeaturedRoomCard";
 import styles from "./FeaturedRooms.module.css";
@@ -26,15 +24,10 @@ export function FeaturedRooms() {
       ariaLabel="Featured rooms at Omedad Hotel"
     >
       <PageContainer>
-        <header className={styles.header}>
-          <SectionSubtitle align="center">
-            {FEATURED_ROOMS_CONTENT.overline}
-          </SectionSubtitle>
-
-          <SectionTitle as="h2" align="center" className={styles.heading}>
-            {FEATURED_ROOMS_CONTENT.heading}
-          </SectionTitle>
-        </header>
+        <SectionHeader
+          subtitle={FEATURED_ROOMS_CONTENT.overline}
+          title={FEATURED_ROOMS_CONTENT.heading}
+        />
 
         <div className={styles.grid} aria-label="Featured room listings">
           {FEATURED_ROOMS.map((room) => (

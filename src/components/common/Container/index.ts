@@ -1,1 +1,1 @@
-export { Container } from "./Container";
+export { PageContainer as Container } from "@/components/ui/PageContainer";

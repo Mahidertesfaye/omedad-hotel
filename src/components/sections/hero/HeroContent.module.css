@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: var(--space-5);
-  max-width: 42rem;
+  max-width: var(--measure-lg);
 }
 
 .overline {
@@ -12,7 +12,7 @@
   font-weight: var(--font-weight-medium);
   letter-spacing: var(--tracking-wider);
   text-transform: uppercase;
-  color: rgb(255 255 255 / 0.72);
+  color: var(--color-inverse-body);
 }
 
 .headline {
@@ -26,12 +26,12 @@
 }
 
 .subtitle {
-  max-width: 36rem;
+  max-width: var(--measure-sm);
   font-family: var(--font-body);
   font-size: clamp(var(--text-base), 2vw, var(--text-lg));
   font-weight: var(--font-weight-regular);
   line-height: var(--leading-relaxed);
-  color: rgb(255 255 255 / 0.82);
+  color: var(--color-inverse-emphasis);
   text-wrap: pretty;
 }
 

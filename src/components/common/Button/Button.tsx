@@ -29,6 +29,14 @@ export function Button({
   );
 
   if (href) {
+    if (disabled) {
+      return (
+        <span className={classes} aria-disabled="true" role="link">
+          {children}
+        </span>
+      );
+    }
+
     if (external) {
       return (
         <a
@@ -37,7 +45,6 @@ export function Button({
           target="_blank"
           rel="noopener noreferrer"
           onClick={onClick}
-          aria-disabled={disabled || undefined}
         >
           {children}
         </a>
@@ -45,12 +52,7 @@ export function Button({
     }
 
     return (
-      <Link
-        href={href}
-        className={classes}
-        onClick={onClick}
-        aria-disabled={disabled || undefined}
-      >
+      <Link href={href} className={classes} onClick={onClick}>
         {children}
       </Link>
     );

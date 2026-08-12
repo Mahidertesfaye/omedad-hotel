@@ -9,7 +9,7 @@ interface SectionProps {
   id?: string;
   as?: ElementType;
   variant?: SectionVariant;
-  padding?: "default" | "sm" | "none";
+  padding?: "default" | "sm" | "lg" | "none";
   ariaLabel?: string;
 }
 

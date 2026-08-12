@@ -41,12 +41,25 @@ export type {
 export type { AboutStat } from "./about";
 
 export type {
+  BedType,
   FeaturedRoom,
   FeaturedRoomImage,
   FeaturedRoomPrice,
+  Room,
+  RoomFiltersState,
+  RoomImage,
+  RoomType,
 } from "./rooms";
 
 export type { Amenity, AmenityIcon } from "./amenities";
+
+export type {
+  DietaryTag,
+  MenuCategory,
+  MenuCategoryId,
+  MenuItem,
+  MenuItemImage,
+} from "./menu";
 
 export type {
   RestaurantContent,

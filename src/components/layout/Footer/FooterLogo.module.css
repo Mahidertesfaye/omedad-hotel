@@ -1,47 +1,22 @@
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-3);
   width: fit-content;
-  font-family: var(--font-heading);
-  font-size: var(--text-2xl);
-  font-weight: var(--font-weight-regular);
-  letter-spacing: var(--tracking-tight);
-  color: var(--color-white);
   text-decoration: none;
   transition:
     opacity var(--transition-base),
     transform var(--transition-base);
 }
 
-.logoMark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.25rem;
-  height: 2.25rem;
-  font-family: var(--font-heading);
-  font-size: var(--text-xl);
-  font-weight: var(--font-weight-regular);
-  border: 1px solid rgb(255 255 255 / 0.35);
-  border-radius: var(--radius-sm);
-  transition:
-    border-color var(--transition-base),
-    transform var(--transition-base);
-}
-
-.logoText {
-  display: inline;
+.logoImage {
+  width: auto;
+  height: 3.5rem;
+  object-fit: contain;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .logo:hover {
     opacity: 0.92;
-  }
-
-  .logo:hover .logoMark {
-    border-color: rgb(255 255 255 / 0.6);
-    transform: translateY(-1px);
   }
 }
 
@@ -52,14 +27,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .logo,
-  .logoMark {
+  .logo {
     transition: opacity var(--transition-base);
-  }
-
-  @media (hover: hover) and (pointer: fine) {
-    .logo:hover .logoMark {
-      transform: none;
-    }
   }
 }

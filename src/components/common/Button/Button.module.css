@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: center;
   gap: var(--space-2);
+  min-height: var(--touch-target-min);
   font-family: var(--font-body);
   font-weight: var(--font-weight-medium);
   letter-spacing: var(--tracking-wide);
@@ -15,12 +16,20 @@
     border-color var(--transition-base),
     color var(--transition-base),
     transform var(--transition-base),
-    box-shadow var(--transition-base);
+    box-shadow var(--transition-base),
+    opacity var(--transition-fast);
 }
 
-.button:disabled {
+.button:disabled,
+.button[aria-disabled="true"] {
   opacity: 0.5;
   cursor: not-allowed;
+  pointer-events: none;
+}
+
+.button:focus-visible {
+  outline: var(--focus-ring-width) solid var(--color-focus-ring);
+  outline-offset: var(--focus-ring-offset);
 }
 
 /* Variants */
@@ -47,19 +56,20 @@
 
 /* Sizes */
 .sm {
-  height: 2.25rem;
+  height: var(--control-height-sm);
+  min-height: var(--control-height-sm);
   padding-inline: var(--space-4);
   font-size: var(--text-xs);
 }
 
 .md {
-  height: 2.75rem;
+  height: var(--control-height);
   padding-inline: var(--space-6);
   font-size: var(--text-sm);
 }
 
 .lg {
-  height: 3.25rem;
+  height: var(--control-height-lg);
   padding-inline: var(--space-8);
   font-size: var(--text-sm);
 }
@@ -69,32 +79,33 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .primary:not(:disabled):hover {
+  .primary:not(:disabled):not([aria-disabled="true"]):hover {
     background-color: var(--color-primary-hover);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 16px var(--color-shadow);
+    transform: translateY(var(--lift-sm));
+    box-shadow: var(--shadow-md);
   }
 
-  .secondary:not(:disabled):hover {
+  .secondary:not(:disabled):not([aria-disabled="true"]):hover {
     background-color: var(--color-gray-200);
   }
 
-  .outline:not(:disabled):hover {
+  .outline:not(:disabled):not([aria-disabled="true"]):hover {
     border-color: var(--color-primary);
     color: var(--color-primary);
   }
 
-  .ghost:not(:disabled):hover {
+  .ghost:not(:disabled):not([aria-disabled="true"]):hover {
     color: var(--color-primary);
   }
 }
 
-.primary:active:not(:disabled) {
+.primary:active:not(:disabled):not([aria-disabled="true"]) {
   background-color: var(--color-primary-active);
+  transform: none;
 }
 
 .inverse.outline {
-  border-color: rgb(255 255 255 / 0.35);
+  border-color: var(--color-border-inverse-strong);
   color: var(--color-text-inverse);
 }
 
@@ -108,17 +119,27 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .inverse.primary:not(:disabled):hover {
+  .inverse.primary:not(:disabled):not([aria-disabled="true"]):hover {
     background-color: var(--color-gray-100);
   }
 
-  .inverse.outline:not(:disabled):hover {
+  .inverse.outline:not(:disabled):not([aria-disabled="true"]):hover {
     border-color: var(--color-white);
     color: var(--color-white);
   }
 
-  .inverse.ghost:not(:disabled):hover {
+  .inverse.ghost:not(:disabled):not([aria-disabled="true"]):hover {
     color: var(--color-white);
     opacity: 0.85;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition: none;
+  }
+
+  .primary:not(:disabled):not([aria-disabled="true"]):hover {
+    transform: none;
   }
 }

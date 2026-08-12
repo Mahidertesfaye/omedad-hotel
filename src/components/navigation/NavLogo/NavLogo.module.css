@@ -1,60 +1,28 @@
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-3);
-  font-family: var(--font-heading);
-  font-size: var(--text-xl);
-  font-weight: var(--font-weight-regular);
-  letter-spacing: var(--tracking-tight);
-  color: var(--color-white);
-  transition: color var(--transition-base);
   will-change: transform;
 }
 
-.logoMark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2rem;
-  height: 2rem;
-  font-family: var(--font-heading);
-  font-size: var(--text-lg);
-  font-weight: var(--font-weight-regular);
-  border: 1px solid rgb(255 255 255 / 0.35);
-  border-radius: var(--radius-sm);
-  transition: border-color var(--transition-base);
+.logoImage {
+  width: auto;
+  height: 2.5rem;
+  object-fit: contain;
 }
 
-.logoText {
-  display: none;
-}
-
-.scrolled {
-  color: var(--color-primary-navy);
-}
-
-.scrolled .logoMark {
-  border-color: var(--color-border);
-  color: var(--color-primary-navy);
-}
-
-.menuOpen {
-  color: var(--color-white);
-}
-
-.menuOpen .logoMark {
-  border-color: rgb(255 255 255 / 0.35);
-  color: var(--color-white);
-}
-
-@media (min-width: 769px) {
-  .logoText {
-    display: inline;
-  }
+.scrolled .logoImage {
+  height: 2.25rem;
+  /* White asset → dark navy on light scrolled header */
+  filter: brightness(0) saturate(100%) invert(14%) sepia(28%) saturate(1847%)
+    hue-rotate(182deg) brightness(92%) contrast(92%);
 }
 
 @media (min-width: 1024px) {
-  .logo {
-    font-size: var(--text-2xl);
+  .logoImage {
+    height: 3rem;
+  }
+
+  .scrolled .logoImage {
+    height: 2.5rem;
   }
 }

@@ -50,7 +50,7 @@ export function FeaturedRoomCard({ room }: FeaturedRoomCardProps) {
           </p>
 
           <OutlineButton href={room.href} size="sm">
-            Explore
+            Explore More
           </OutlineButton>
         </div>
       </div>

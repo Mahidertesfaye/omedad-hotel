@@ -2,6 +2,7 @@ export { useMediaQuery, useIsMobile, usePrefersReducedMotion } from "./useMediaQ
 export { useScrollState } from "./useScrollState";
 export { useBodyScrollLock } from "./useBodyScrollLock";
 export { useEscapeKey } from "./useEscapeKey";
+export { useClickOutside } from "./useClickOutside";
 export { useMobileMenu } from "./useMobileMenu";
 export { useActiveNavLink } from "./useActiveNavLink";
 export { useLogoScale } from "./useLogoScale";

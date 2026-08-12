@@ -85,6 +85,12 @@
   transition: color var(--transition-fast);
 }
 
+.contactLink:focus-visible {
+  outline: var(--focus-ring-width) solid var(--color-focus-ring);
+  outline-offset: var(--focus-ring-offset);
+  border-radius: var(--radius-sm);
+}
+
 @media (hover: hover) and (pointer: fine) {
   .contactLink:hover {
     color: var(--color-light-navy);
@@ -168,6 +174,11 @@
   transition:
     border-color var(--transition-base),
     box-shadow var(--transition-base);
+}
+
+.attractionItem:focus-within {
+  border-color: var(--color-border);
+  box-shadow: var(--shadow-sm);
 }
 
 .attractionIconWrap {

@@ -41,7 +41,7 @@
   font-size: var(--text-sm);
   font-weight: var(--font-weight-regular);
   line-height: var(--leading-relaxed);
-  color: rgb(255 255 255 / 0.65);
+  color: var(--color-inverse-strong);
 }
 
 .divider {
@@ -49,9 +49,9 @@
   margin-block: clamp(var(--space-10), 4vw, var(--space-14));
   background: linear-gradient(
     90deg,
-    rgb(255 255 255 / 0) 0%,
-    rgb(255 255 255 / 0.18) 50%,
-    rgb(255 255 255 / 0) 100%
+    transparent 0%,
+    var(--color-inverse-muted) 50%,
+    transparent 100%
   );
 }
 

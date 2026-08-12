@@ -31,7 +31,7 @@
 .title {
   margin: 0;
   font-family: var(--font-heading);
-  font-size: var(--text-xl);
+  font-size: clamp(var(--text-xl), 2vw, var(--text-2xl));
   font-weight: var(--font-weight-regular);
   line-height: var(--leading-snug);
   letter-spacing: var(--tracking-tight);
@@ -95,7 +95,7 @@
 
 .priceValue {
   font-family: var(--font-heading);
-  font-size: var(--text-lg);
+  font-size: var(--text-xl);
   line-height: var(--leading-tight);
   color: var(--color-text);
 }
@@ -103,11 +103,11 @@
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
     box-shadow: var(--shadow-lg);
-    transform: translateY(-2px);
+    transform: translateY(var(--lift-md));
   }
 
   .card:hover .image {
-    transform: scale(1.04);
+    transform: scale(var(--scale-hover));
   }
 }
 

@@ -13,17 +13,11 @@
 }
 
 .scrolled {
-  background-color: rgb(255 255 255 / 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background-color: var(--glass-bg-scrolled);
+  backdrop-filter: blur(var(--glass-blur-sm));
+  -webkit-backdrop-filter: blur(var(--glass-blur-sm));
   border-bottom: 1px solid var(--color-border-light);
   box-shadow: var(--shadow-sm);
-}
-
-.menuOpen {
-  background-color: transparent;
-  border-bottom-color: transparent;
-  box-shadow: none;
 }
 
 .inner {
@@ -32,7 +26,7 @@
   justify-content: space-between;
   gap: var(--space-6);
   height: 100%;
-  max-width: var(--container-2xl);
+  max-width: var(--container-max);
   margin-inline: auto;
   padding-inline: var(--container-padding);
 }
@@ -41,14 +35,4 @@
   display: flex;
   align-items: center;
   gap: var(--space-4);
-}
-
-.desktopBook {
-  display: none;
-}
-
-@media (min-width: 769px) {
-  .desktopBook {
-    display: inline-flex;
-  }
 }

@@ -12,7 +12,7 @@
   font-weight: var(--font-weight-semibold);
   letter-spacing: var(--tracking-widest);
   text-transform: uppercase;
-  color: rgb(255 255 255 / 0.45);
+  color: var(--color-inverse-soft);
 }
 
 .list {
@@ -28,11 +28,11 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  color: rgb(255 255 255 / 0.75);
-  border: 1px solid rgb(255 255 255 / 0.18);
-  border-radius: 50%;
+  width: var(--space-10);
+  height: var(--space-10);
+  color: var(--color-inverse-body);
+  border: 1px solid var(--color-inverse-muted);
+  border-radius: var(--radius-full);
   transition:
     color var(--transition-base),
     border-color var(--transition-base),
@@ -42,25 +42,25 @@
 }
 
 .icon {
-  width: 1rem;
-  height: 1rem;
+  width: var(--icon-sm);
+  height: var(--icon-sm);
 }
 
 @media (hover: hover) and (pointer: fine) {
   .link:hover {
     color: var(--color-white);
-    border-color: rgb(255 255 255 / 0.45);
-    background-color: rgb(255 255 255 / 0.06);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgb(0 0 0 / 0.25);
+    border-color: var(--color-inverse-soft);
+    background-color: var(--color-inverse-subtle);
+    transform: translateY(var(--lift-md));
+    box-shadow: var(--shadow-md);
   }
 }
 
 .link:focus-visible {
   color: var(--color-white);
-  border-color: rgb(255 255 255 / 0.5);
-  outline: 2px solid rgb(255 255 255 / 0.35);
-  outline-offset: 3px;
+  border-color: var(--color-inverse-medium);
+  outline: var(--focus-ring-width) solid var(--color-border-inverse-strong);
+  outline-offset: var(--focus-ring-offset);
 }
 
 @media (prefers-reduced-motion: reduce) {

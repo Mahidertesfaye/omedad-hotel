@@ -20,7 +20,7 @@ export const FEATURED_ROOMS: FeaturedRoom[] = [
       src: "/images/rooms/placeholder.svg",
       alt: "Deluxe King Room — spacious bedroom with city views",
     },
-    href: "#booking",
+    href: "/rooms",
   },
   {
     id: "executive-suite",
@@ -33,7 +33,7 @@ export const FEATURED_ROOMS: FeaturedRoom[] = [
       src: "/images/rooms/placeholder.svg",
       alt: "Executive Suite — elegant living area with panoramic windows",
     },
-    href: "#booking",
+    href: "/rooms",
   },
   {
     id: "presidential-suite",
@@ -46,6 +46,6 @@ export const FEATURED_ROOMS: FeaturedRoom[] = [
       src: "/images/rooms/placeholder.svg",
       alt: "Presidential Suite — luxurious suite with private terrace",
     },
-    href: "#booking",
+    href: "/rooms",
   },
 ];

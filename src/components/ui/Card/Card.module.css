@@ -39,6 +39,16 @@
 @media (hover: hover) and (pointer: fine) {
   .elevated:hover {
     box-shadow: var(--shadow-lg);
-    transform: translateY(-2px);
+    transform: translateY(var(--lift-md));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
+
+  .elevated:hover {
+    transform: none;
   }
 }

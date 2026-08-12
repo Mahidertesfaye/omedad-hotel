@@ -1,8 +1,6 @@
 import dynamic from "next/dynamic";
 import { Section } from "@/components/common/Section";
-import { PageContainer, Skeleton } from "@/components/ui";
-import { SectionSubtitle } from "@/components/ui/SectionSubtitle";
-import { SectionTitle } from "@/components/ui/SectionTitle";
+import { PageContainer, SectionHeader, Skeleton } from "@/components/ui";
 import { TESTIMONIALS_CONTENT } from "@/constants/testimonials";
 import styles from "./Testimonials.module.css";
 
@@ -28,17 +26,11 @@ export function Testimonials() {
       ariaLabel="Guest testimonials"
     >
       <PageContainer>
-        <header className={styles.header}>
-          <SectionSubtitle align="center">
-            {TESTIMONIALS_CONTENT.overline}
-          </SectionSubtitle>
-
-          <SectionTitle as="h2" align="center" className={styles.heading}>
-            {TESTIMONIALS_CONTENT.heading}
-          </SectionTitle>
-
-          <p className={styles.lead}>{TESTIMONIALS_CONTENT.description}</p>
-        </header>
+        <SectionHeader
+          subtitle={TESTIMONIALS_CONTENT.overline}
+          title={TESTIMONIALS_CONTENT.heading}
+          lead={TESTIMONIALS_CONTENT.description}
+        />
 
         <TestimonialsCarousel />
       </PageContainer>

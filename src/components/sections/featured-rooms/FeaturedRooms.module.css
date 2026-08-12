@@ -1,20 +1,6 @@
-.header {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-  max-width: 42rem;
-  margin-inline: auto;
-  margin-bottom: clamp(var(--space-10), 5vw, var(--space-16));
-  text-align: center;
-}
-
-.heading {
-  margin: 0;
-}
-
 .grid {
   display: none;
-  gap: clamp(var(--space-6), 3vw, var(--space-8));
+  gap: var(--grid-gap-lg);
 }
 
 @media (min-width: 1024px) {

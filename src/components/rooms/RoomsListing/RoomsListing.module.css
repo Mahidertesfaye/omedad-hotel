@@ -1,0 +1,29 @@
+.section {
+  overflow: visible;
+}
+
+.notice {
+  margin: 0 0 var(--space-8);
+  max-width: var(--measure-lg);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-muted);
+}
+
+.toolbar {
+  position: relative;
+  z-index: var(--z-dropdown);
+  margin-bottom: var(--space-10);
+  overflow: visible;
+}
+
+@media (max-width: 768px) {
+  .notice {
+    margin-bottom: var(--space-6);
+  }
+
+  .toolbar {
+    margin-bottom: var(--space-6);
+  }
+}

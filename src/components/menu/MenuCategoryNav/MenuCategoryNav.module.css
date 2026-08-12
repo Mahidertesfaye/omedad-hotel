@@ -1,0 +1,98 @@
+.sentinel {
+  position: relative;
+  top: calc(var(--header-height) * -1);
+  height: 1px;
+  width: 100%;
+  pointer-events: none;
+}
+
+.nav {
+  position: sticky;
+  top: var(--header-height);
+  z-index: var(--z-sticky);
+  background-color: var(--glass-bg-scrolled);
+  border-bottom: 1px solid transparent;
+  backdrop-filter: blur(var(--glass-blur-sm));
+  -webkit-backdrop-filter: blur(var(--glass-blur-sm));
+  transition:
+    border-color var(--transition-base),
+    box-shadow var(--transition-base),
+    background-color var(--transition-base);
+}
+
+.stuck {
+  border-bottom-color: var(--color-border);
+  box-shadow: var(--shadow-sm);
+  background-color: var(--glass-bg-sticky);
+}
+
+.scroller {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  width: max-content;
+  min-width: 100%;
+  margin: 0 auto;
+  padding: var(--space-3) var(--container-padding);
+  list-style: none;
+  max-width: var(--container-max);
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--tracking-wide);
+  white-space: nowrap;
+  color: var(--color-text-muted);
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.link:focus-visible {
+  outline: var(--focus-ring-width) solid var(--color-focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+.active {
+  color: var(--color-primary-navy);
+  background-color: var(--color-background-alt);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .link:hover {
+    color: var(--color-primary-navy);
+    background-color: var(--color-background-alt);
+  }
+}
+
+@media (max-width: 768px) {
+  .list {
+    padding-inline: var(--container-padding);
+    gap: var(--space-1);
+  }
+
+  .link {
+    padding-inline: var(--space-3);
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+  }
+}

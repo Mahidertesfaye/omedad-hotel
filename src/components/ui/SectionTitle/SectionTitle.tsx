@@ -8,6 +8,7 @@ interface SectionTitleProps {
   as?: ElementType;
   align?: "left" | "center" | "right";
   inverse?: boolean;
+  id?: string;
 }
 
 export function SectionTitle({
@@ -16,9 +17,11 @@ export function SectionTitle({
   as: Component = "h2",
   align = "left",
   inverse = false,
+  id,
 }: SectionTitleProps) {
   return (
     <Component
+      id={id}
       className={cn(
         styles.title,
         styles[`align-${align}`],

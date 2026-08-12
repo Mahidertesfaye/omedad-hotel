@@ -1,4 +1,5 @@
 .field {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
@@ -8,6 +9,13 @@
   transition:
     background-color var(--transition-base),
     box-shadow var(--transition-base);
+  z-index: 0;
+}
+
+.field:focus-within {
+  z-index: 1;
+  background-color: var(--glass-bg-hover);
+  box-shadow: 0 0 0 1px var(--border-subtle);
 }
 
 .label {
@@ -20,18 +28,13 @@
   transition: color var(--transition-fast);
 }
 
-.field:focus-within {
-  background-color: var(--glass-bg-hover);
-  box-shadow: 0 0 0 1px rgb(var(--color-navy-900-rgb) / 0.06);
-}
-
 .field:focus-within .label {
   color: var(--color-primary-navy);
 }
 
 @media (hover: hover) and (pointer: fine) {
   .field:hover {
-    background-color: rgb(255 255 255 / 0.35);
+    background-color: rgb(var(--color-navy-900-rgb) / 0.04);
   }
 }
 

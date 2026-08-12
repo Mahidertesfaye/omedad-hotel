@@ -1,9 +1,8 @@
 "use client";
 
 import { useId, type RefObject } from "react";
-import { PrimaryButton } from "@/components/ui";
+import { PrimaryButton, Select } from "@/components/ui";
 import {
-  BOOKING_DEFAULTS,
   BOOKING_LABELS,
   BOOKING_LIMITS,
 } from "@/constants/booking";
@@ -21,8 +20,11 @@ interface BookingSearchProps {
   onSubmit?: (values: BookingSearchValues) => void;
 }
 
-function buildOptions(min: number, max: number): number[] {
-  return Array.from({ length: max - min + 1 }, (_, index) => min + index);
+function buildOptions(min: number, max: number) {
+  return Array.from({ length: max - min + 1 }, (_, index) => {
+    const value = min + index;
+    return { value: String(value), label: String(value) };
+  });
 }
 
 export function BookingSearch({
@@ -34,6 +36,7 @@ export function BookingSearch({
 }: BookingSearchProps) {
   const idPrefix = useId().replace(/:/g, "");
   const {
+    values,
     setCheckIn,
     setCheckOut,
     setAdults,
@@ -43,7 +46,6 @@ export function BookingSearch({
   } = useBookingSearch(onSubmit);
 
   const inputClassName = cn(styles.control, styles.input);
-  const selectClassName = cn(styles.control, styles.select);
 
   return (
     <div
@@ -68,6 +70,7 @@ export function BookingSearch({
             id={`${idPrefix}-check-in`}
             type="date"
             className={inputClassName}
+            value={values.checkIn}
             onChange={(event) => setCheckIn(event.target.value)}
             required
           />
@@ -83,6 +86,7 @@ export function BookingSearch({
             id={`${idPrefix}-check-out`}
             type="date"
             className={inputClassName}
+            value={values.checkOut}
             onChange={(event) => setCheckOut(event.target.value)}
             required
           />
@@ -94,21 +98,16 @@ export function BookingSearch({
           id={`${idPrefix}-adults`}
           label={BOOKING_LABELS.adults}
         >
-          <select
+          <Select
             id={`${idPrefix}-adults`}
-            className={selectClassName}
-            defaultValue={BOOKING_DEFAULTS.adults}
-            onChange={(event) => setAdults(Number(event.target.value))}
-          >
-            {buildOptions(
+            variant="ghost"
+            value={String(values.adults)}
+            options={buildOptions(
               BOOKING_LIMITS.adults.min,
               BOOKING_LIMITS.adults.max,
-            ).map((value) => (
-              <option key={value} value={value}>
-                {value}
-              </option>
-            ))}
-          </select>
+            )}
+            onChange={(value) => setAdults(Number(value))}
+          />
         </BookingSearchField>
 
         <div className={styles.divider} aria-hidden="true" />
@@ -117,21 +116,16 @@ export function BookingSearch({
           id={`${idPrefix}-children`}
           label={BOOKING_LABELS.children}
         >
-          <select
+          <Select
             id={`${idPrefix}-children`}
-            className={selectClassName}
-            defaultValue={BOOKING_DEFAULTS.children}
-            onChange={(event) => setChildren(Number(event.target.value))}
-          >
-            {buildOptions(
+            variant="ghost"
+            value={String(values.children)}
+            options={buildOptions(
               BOOKING_LIMITS.children.min,
               BOOKING_LIMITS.children.max,
-            ).map((value) => (
-              <option key={value} value={value}>
-                {value}
-              </option>
-            ))}
-          </select>
+            )}
+            onChange={(value) => setChildren(Number(value))}
+          />
         </BookingSearchField>
 
         <div className={styles.divider} aria-hidden="true" />
@@ -140,21 +134,16 @@ export function BookingSearch({
           id={`${idPrefix}-rooms`}
           label={BOOKING_LABELS.rooms}
         >
-          <select
+          <Select
             id={`${idPrefix}-rooms`}
-            className={selectClassName}
-            defaultValue={BOOKING_DEFAULTS.rooms}
-            onChange={(event) => setRooms(Number(event.target.value))}
-          >
-            {buildOptions(
+            variant="ghost"
+            value={String(values.rooms)}
+            options={buildOptions(
               BOOKING_LIMITS.rooms.min,
               BOOKING_LIMITS.rooms.max,
-            ).map((value) => (
-              <option key={value} value={value}>
-                {value}
-              </option>
-            ))}
-          </select>
+            )}
+            onChange={(value) => setRooms(Number(value))}
+          />
         </BookingSearchField>
 
         <PrimaryButton type="submit" size="lg" className={styles.submit}>

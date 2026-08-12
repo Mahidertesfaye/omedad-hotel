@@ -45,6 +45,10 @@
   padding-block: var(--section-padding-y-sm);
 }
 
+.padding-lg {
+  padding-block: var(--section-padding-y-lg);
+}
+
 .padding-none {
   padding-block: 0;
 }

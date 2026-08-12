@@ -20,9 +20,9 @@ export const SOCIAL_LINKS = {
 } as const;
 
 export const NAV_LINKS = [
-  { label: "Rooms", href: "#rooms" },
-  { label: "Dining", href: "#restaurant" },
-  { label: "Amenities", href: "#amenities" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Location", href: "#location" },
+  { label: "Home", href: "/" },
+  { label: "Rooms", href: "/rooms" },
+  { label: "Dining", href: "/menu" },
+  { label: "Experience", href: "/#amenities" },
+  { label: "About", href: "/#about" },
 ] as const;
